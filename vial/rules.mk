@@ -1,11 +1,17 @@
-MOUSEKEY_ENABLE = no    # Mouse keys
-RGBLIGHT_ENABLE = no    # Enable WS2812 RGB underlight.
+LTO_ENABLE          = yes
+MOUSEKEY_ENABLE     = yes
+EXTRAKEY_ENABLE     = yes		# Audio control and System control
+NKRO_ENABLE         = yes
+RGBLIGHT_ENABLE     = yes
+TAP_DANCE_ENABLE    = yes
+
+BACKLIGHT_ENABLE    = no
+MUSIC_ENABLE        = no
+OLED_ENABLE         = no
+COMBO_ENABLE        = no
+KEY_OVERRIDE_ENABLE = no
+QMK_SETTINGS        = no
+
+VIAL_INSECURE   = yes
 VIA_ENABLE      = yes
 VIAL_ENABLE     = yes
-OLED_ENABLE     = no
-OLED_DRIVER     = SSD1306
-EXTRAKEY_ENABLE = yes
-LTO_ENABLE      = yes
-QMK_SETTINGS    = yes
-COMBO_ENABLE    = yes
-VIAL_INSECURE   = yes
