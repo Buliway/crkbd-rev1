@@ -10,3 +10,5 @@ make crkbd/rev1:vial
 https://get.vial.today/docs/porting-to-vial.html
 
 https://docs.qmk.fm/#/newbs_flashing
+
+![Keyboard](/img/test.jpg)
