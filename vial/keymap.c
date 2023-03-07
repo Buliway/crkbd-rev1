@@ -22,6 +22,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CUSTOM_SAFE_RANGE SAFE_RANGE
 #include "lang_shift/include.h"
 
+// #define LCTRL() C()
+
 #define L_ENG 0
 #define L_RU 2
 #define L_NUMF 1
@@ -58,11 +60,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_NUMF] = LAYOUT(
   //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+      XXXXXXX,  XXXXXXX,   KC_1,     KC_2,     KC_3,    XXXXXXX,                       XXXXXXX,   KC_F1,    KC_F2,    KC_F3,    KC_F4,   XXXXXXX,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+      XXXXXXX,   KC_0,     KC_4,     KC_5,     KC_6,    KC_PSCR,                       XXXXXXX,   KC_F5,    KC_F6,    KC_F7,    KC_F8,   XXXXXXX,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      CTRL_0,   KC_LWIN,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   ALT_0,
+      KC_LCTL,  KC_LWIN,   KC_7,     KC_8,     KC_9,    XXXXXXX,                       XXXXXXX,   KC_F9,    KC_F10,   KC_F11,   KC_F12,  KC_LALT,
   //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
                                               XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX
                                          //`+---------+---------+---------||---------+---------+---------+'
@@ -70,49 +72,49 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_PUNC] = LAYOUT(
   //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+      AG_PERC,  EN_QUOT,  AG_MINS,  AG_SLSH,   AG_EQL,  AG_PLUS,                       EN_PIPE,  AG_RPRN,  EN_RCBR,  EN_RBRC,   EN_GT,   EN_TILD,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+      EN_CIRC,  AG_DQUO,  AG_UNDS,  AG_COMM,   AG_DOT,   EN_AT,                        AG_BSLS,  AG_LPRN,  EN_LCBR,  EN_LBRC,   EN_LT,   EN_GRV,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+      XXXXXXX,  EN_DLR,   AG_SCLN,  AG_ASTR,  AG_QUES,  RU_NUME,                       XXXXXXX,  AG_EXCL,  EN_HASH,  AG_COLN,  EN_AMPR,  XXXXXXX,
   //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
                                               XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX
                                          //`+---------+---------+---------||---------+---------+---------+'
   ),
 
   [L_IDK1] = LAYOUT(
-  //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-  //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
-                                              XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX
-                                         //`+---------+---------+---------||---------+---------+---------+'
+  //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
+       XXXXXXX,   C(KC_SLSH),  C(KC_R),    C(KC_Z),    C(KC_S),    XXXXXXX,                             XXXXXXX,    C(KC_T),    C(KC_N),   C(S(KC_P)),  C(KC_F5),   XXXXXXX,
+  //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    C(KC_W),    C(KC_A),    C(KC_C),    C(KC_V),    C(KC_X),                             XXXXXXX,    A(KC_D),   A(KC_ENT),   C(KC_F),    C(KC_J),    XXXXXXX,
+  //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,   C(S(KC_T)),  C(KC_D),  C(KC_PGUP),  C(KC_PGDN),  XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    G(KC_L),
+  //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+                                                       XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
+                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
   ),
 
   [L_IDK2] = LAYOUT(
-  //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       LA_SYNC,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                     DF(L_GAME), LA_CAPS,  LA_ALSH,  LA_CTSH,  LA_WISP,  XXXXXXX,
-  //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
-                                              XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX
-                                         //`+---------+---------+---------||---------+---------+---------+'
+  //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
+       KC_HOME,  C(KC_LEFT),  C(KC_UP),  C(KC_DOWN),  C(KC_RGHT),  KC_PGUP,                             LA_SYNC,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    RGB_TOG,
+  //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       KC_END,     KC_LEFT,     KC_UP,     KC_DOWN,    KC_RGHT,    KC_PGDN,                             KC_VOLD,    KC_MPLY,    KC_MNXT,    KC_MPRV,    KC_MUTE,    KC_VOLU,
+  //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       KC_LCTL,    KC_WH_L,    KC_WH_U,    KC_WH_D,    KC_WH_R,    KC_DEL,                            DF(L_GAME),   LA_CAPS,    LA_ALSH,    LA_CTSH,    LA_WISP,    KC_LALT,
+  //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+                                                       XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
+                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
   ),
 
   [L_GAME] = LAYOUT(
   //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+      KC_TAB,    KC_T,     KC_Q,     KC_W,     KC_E,     KC_R,                         XXXXXXX,  XXXXXXX,   KC_UP,   XXXXXXX,  XXXXXXX, DF(L_RU),
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+      KC_LSFT,   KC_G,     KC_A,     KC_S,     KC_D,     KC_F,                         XXXXXXX,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_SCLN,  XXXXXXX,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+      KC_LCTL,   KC_B,     KC_Z,     KC_X,     KC_C,     KC_V,                         XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX, DF(L_ENG),
   //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
-                                              XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX
+                                              KC_LALT,  KC_SPC,    TD(4),      KC_H,   KC_SPC,   XXXXXXX
                                          //`+---------+---------+---------||---------+---------+---------+'
   )
 
@@ -197,7 +199,7 @@ void keyboard_post_init_user(void) {
     dynamic_keymap_set_tap_dance(6, &td6);
 };
 
-// Lighting Layers LA_CHNG
+// Lighting Layers
 layer_state_t default_layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case L_ENG:
