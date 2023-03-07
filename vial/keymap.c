@@ -23,123 +23,100 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "lang_shift/include.h"
 
 #define L_ENG 0
-#define L_RU 1
-#define L_NUMF 2
+#define L_RU 2
+#define L_NUMF 1
 #define L_PUNC 3
 #define L_IDK1 4
 #define L_IDK2 5
 #define L_GAME 6
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  // [L_ENG] = LAYOUT_split_3x6_3(
-  // //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-  //    KC_ESCAPE,  KC_F,     KC_L,     KC_H,     KC_V,     KC_Z,                          KC_Q,      KC_W,     KC_U,    KC_O,      KC_Y,    KC_NO,
-  // //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-  //      KC_NO,    KC_S,     KC_R,     KC_N,     KC_T,     KC_K,                          KC_C,      KC_D,     KC_E,    KC_A,      KC_I,    KC_NO,
-  // //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-  //     KC_LCTRL,  KC_X,     KC_NO,    KC_B,     KC_M,     KC_J,                          KC_P,      KC_G,     KC_NO,   KC_NO,     KC_NO,   DF(1),
-  // //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
-  //                                               TD(0),   TD(1),  KC_LSHIFT,   TD(2),    TD(3),    KC_TAB
-  //                                        //`------------------------------'`------------------------------'
-  // ),
-  //
-  // [L_RU] = LAYOUT_split_3x6_3(
-  // //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-  //    KC_ESCAPE,KC_LBRACKET,KC_U,     KC_Z,     KC_S,     KC_E,                          KC_L,     KC_X,     KC_V,   KC_SCOLON, KC_QUOTE,  KC_O,
-  // //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-  //      KC_A,     KC_Y,     KC_B,     KC_T,     KC_J,     KC_M,                          KC_G,     KC_D,     KC_N,     KC_C,     KC_H,     KC_W,
-  // //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-  //      DF(0),    KC_I,    KC_COMMA,  KC_DOT,   KC_F,   KC_GRAVE,                     KC_RBRACKET, KC_R,     KC_K,     KC_P,     KC_Q,    KC_LALT,
-  // //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
-  //                                               TD(0),   TD(1),  KC_LSHIFT,   TD(2),    TD(3),    KC_TAB
-  //                                        //`------------------------------'`------------------------------'
-  // ),
 
   [L_ENG] = LAYOUT(
   //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      KC_0,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  RGB_TOG,
+      KC_ESC,    EN_F,     EN_L,     EN_H,     EN_V,     EN_Z,                          EN_Q,     EN_W,     EN_U,     EN_O,     EN_Y,     XXXXXXX,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+      XXXXXXX,   EN_S,     EN_R,     EN_N,     EN_T,     EN_K,                          EN_C,     EN_D,     EN_E,     EN_A,     EN_I,    XXXXXXX,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  DF(L_RU),
+      CTRL_0 ,   EN_X,    XXXXXXX,   EN_B,     EN_M,     EN_J,                          EN_P,     EN_G,    XXXXXXX,  XXXXXXX,  XXXXXXX,   TD(6),
   //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
                                                 TD(0),   TD(1),  KC_LSHIFT,   TD(2),    TD(3),    KC_TAB
-                                         //`------------------------------'`------------------------------'
+                                         //`+---------+---------+---------||---------+---------+---------+'
   ),
 
   [L_RU] = LAYOUT(
   //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      KC_1,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+      KC_ESC,    RU_H,     RU_G,     RU_JA,    RU_Y,     RU_U,                          RU_D,     RU_CH,    RU_M,     RU_ZH,    RU_E,     RU_SC,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+       RU_F,     RU_N,     RU_I,     RU_JE,    RU_O,     RU_SF,                         RU_P,     RU_V,     RU_T,     RU_S,     RU_R,     RU_TS,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      DF(L_ENG),  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+       TD(5),    RU_SH,    RU_B,     RU_JU,    RU_A,     RU_JO,                         RU_HD,    RU_K,     RU_L,     RU_Z,     RU_J,     ALT_0,
   //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
                                                 TD(0),   TD(1),  KC_LSHIFT,   TD(2),    TD(3),    KC_TAB
-                                         //`------------------------------'`------------------------------'
+                                         //`+---------+---------+---------||---------+---------+---------+'
   ),
 
   [L_NUMF] = LAYOUT(
   //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      KC_2,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
+      CTRL_0,   KC_LWIN,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   ALT_0,
   //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
                                               XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX
-                                         //`------------------------------'`------------------------------'
+                                         //`+---------+---------+---------||---------+---------+---------+'
   ),
 
   [L_PUNC] = LAYOUT(
   //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      KC_3,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
   //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
                                               XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX
-                                         //`------------------------------'`------------------------------'
+                                         //`+---------+---------+---------||---------+---------+---------+'
   ),
 
   [L_IDK1] = LAYOUT(
   //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      KC_4,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
   //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
                                               XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX
-                                         //`------------------------------'`------------------------------'
+                                         //`+---------+---------+---------||---------+---------+---------+'
   ),
 
   [L_IDK2] = LAYOUT(
   //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      KC_5,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       LA_SYNC,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                     DF(L_GAME), LA_CAPS,  LA_ALSH,  LA_CTSH,  LA_WISP,  XXXXXXX,
   //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
                                               XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX
-                                         //`------------------------------'`------------------------------'
+                                         //`+---------+---------+---------||---------+---------+---------+'
   ),
 
   [L_GAME] = LAYOUT(
   //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      KC_6,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+      XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
   //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
                                               XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX
-                                         //`------------------------------'`------------------------------'
+                                         //`+---------+---------+---------||---------+---------+---------+'
   )
 
-  // [7] = LAYOUT_split_3x6_3(
+  // [7] = LAYOUT(
   // //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
   //     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
   // //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
@@ -148,9 +125,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
   // //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
   //                                             XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX
-  //                                        //`------------------------------'`------------------------------'
+  //                                        //`+---------+---------+---------||---------+---------+---------+'
   // )
 };
+
+//idk lang_shift
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (!lang_shift_process_record(keycode, record))
+        return false;
+    return true;
+};
+
+void user_timer(void) {
+    lang_shift_user_timer();
+};
+
+void matrix_scan_user(void) {
+    user_timer();
+};
+
 
 // Tap Dance
 void keyboard_post_init_user(void) {
@@ -188,9 +181,23 @@ void keyboard_post_init_user(void) {
                                    KC_NO,
                                    TAPPING_TERM };
     dynamic_keymap_set_tap_dance(4, &td4);
-}
 
-// Lighting Layers
+    vial_tap_dance_entry_t td5 = { LA_CHNG,
+                                   CTRL_0,
+                                   KC_NO,
+                                   KC_NO,
+                                   TAPPING_TERM };
+    dynamic_keymap_set_tap_dance(5, &td5);
+
+    vial_tap_dance_entry_t td6 = { LA_CHNG,
+                                   ALT_0,
+                                   KC_NO,
+                                   KC_NO,
+                                   TAPPING_TERM };
+    dynamic_keymap_set_tap_dance(6, &td6);
+};
+
+// Lighting Layers LA_CHNG
 layer_state_t default_layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case L_ENG:
@@ -219,7 +226,7 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
             break;
     }
     return state;
-}
+};
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
@@ -249,4 +256,4 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             break;
     }
     return state;
-}
+};
