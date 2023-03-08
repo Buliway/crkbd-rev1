@@ -22,25 +22,35 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CUSTOM_SAFE_RANGE SAFE_RANGE
 #include "lang_shift/include.h"
 
-// #define LCTRL() C()
-
 #define L_ENG 0
-#define L_NUMF 1
+#define L_GAME 1
 #define L_RU 2
 #define L_PUNC 3
 #define L_IDK1 4
 #define L_IDK2 5
-#define L_GAME 6
+#define L_NUMF 6
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_ENG] = LAYOUT(
   //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      KC_ESC,    EN_F,     EN_L,     EN_H,     EN_V,     EN_Z,                          EN_Q,     EN_W,     EN_U,     EN_O,     EN_Y,     XXXXXXX,
+      KC_ESC,    EN_F,     EN_L,     EN_H,     EN_V,     EN_Z,                          EN_Q,     EN_W,     EN_U,     EN_O,     EN_Y,   DF(L_GAME),
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
       XXXXXXX,   EN_S,     EN_R,     EN_N,     EN_T,     EN_K,                          EN_C,     EN_D,     EN_E,     EN_A,     EN_I,    XXXXXXX,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
       CTRL_0 ,   EN_X,    XXXXXXX,   EN_B,     EN_M,     EN_J,                          EN_P,     EN_G,    XXXXXXX,  XXXXXXX,  XXXXXXX,   TD(6),
+  //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
+                                                TD(0),   TD(1),  KC_LSHIFT,   TD(2),    TD(3),    KC_TAB
+                                         //`+---------+---------+---------||---------+---------+---------+'
+  ),
+
+  [L_RU] = LAYOUT(
+  //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
+      KC_ESC,    RU_H,     RU_G,     RU_JA,    RU_Y,     RU_U,                          RU_D,     RU_CH,    RU_M,     RU_ZH,    RU_E,     RU_SC,
+  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
+       RU_F,     RU_N,     RU_I,     RU_JE,    RU_O,     RU_SF,                         RU_P,     RU_V,     RU_T,     RU_S,     RU_R,     RU_TS,
+  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
+       TD(5),    RU_SH,    RU_B,     RU_JU,    RU_A,     RU_JO,                         RU_HD,    RU_K,     RU_L,     RU_Z,     RU_J,     ALT_0,
   //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
                                                 TD(0),   TD(1),  KC_LSHIFT,   TD(2),    TD(3),    KC_TAB
                                          //`+---------+---------+---------||---------+---------+---------+'
@@ -55,18 +65,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_LCTL,  KC_LWIN,   KC_7,     KC_8,     KC_9,    XXXXXXX,                       XXXXXXX,   KC_F9,    KC_F10,   KC_F11,   KC_F12,  KC_LALT,
   //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
                                               XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX
-                                         //`+---------+---------+---------||---------+---------+---------+'
-  ),
-
-  [L_RU] = LAYOUT(
-  //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      KC_ESC,    RU_H,     RU_G,     RU_JA,    RU_Y,     RU_U,                          RU_D,     RU_CH,    RU_M,     RU_ZH,    RU_E,     RU_SC,
-  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-       RU_F,     RU_N,     RU_I,     RU_JE,    RU_O,     RU_SF,                         RU_P,     RU_V,     RU_T,     RU_S,     RU_R,     RU_TS,
-  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-       TD(5),    RU_SH,    RU_B,     RU_JU,    RU_A,     RU_JO,                         RU_HD,    RU_K,     RU_L,     RU_Z,     RU_J,     ALT_0,
-  //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
-                                                TD(0),   TD(1),  KC_LSHIFT,   TD(2),    TD(3),    KC_TAB
                                          //`+---------+---------+---------||---------+---------+---------+'
   ),
 
@@ -96,11 +94,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_IDK2] = LAYOUT(
   //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
-       KC_HOME,  C(KC_LEFT),  C(KC_UP),  C(KC_DOWN),  C(KC_RGHT),  KC_PGUP,                             LA_SYNC,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    RGB_TOG,
+       KC_HOME,  C(KC_LEFT),  C(KC_UP),  C(KC_DOWN),  C(KC_RGHT),  KC_PGUP,                             LA_SYNC,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
   //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
        KC_END,     KC_LEFT,     KC_UP,     KC_DOWN,    KC_RGHT,    KC_PGDN,                             KC_VOLD,    KC_MPLY,    KC_MNXT,    KC_MPRV,    KC_MUTE,    KC_VOLU,
   //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-       KC_LCTL,    KC_WH_L,    KC_WH_U,    KC_WH_D,    KC_WH_R,    KC_DEL,                            DF(L_GAME),   LA_CAPS,    LA_ALSH,    LA_CTSH,    LA_WISP,    KC_LALT,
+       KC_LCTL,    KC_WH_L,    KC_WH_U,    KC_WH_D,    KC_WH_R,    KC_DEL,                              RGB_TOG,    LA_CAPS,    LA_ALSH,    LA_CTSH,    LA_WISP,    KC_LALT,
   //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
                                                        XXXXXXX,    XXXXXXX,    XXXXXXX,    KC_LSHIFT,   XXXXXXX,    XXXXXXX
                                                  //`+-----------+-----------+-----------||-----------+-----------+-----------+'
@@ -108,11 +106,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_GAME] = LAYOUT(
   //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      KC_TAB,    KC_T,     KC_Q,     KC_W,     KC_E,     KC_R,                         XXXXXXX,  XXXXXXX,   KC_UP,   XXXXXXX,  XXXXXXX, DF(L_RU),
+      KC_TAB,    KC_T,     KC_Q,     KC_W,     KC_E,     KC_R,                         XXXXXXX,  XXXXXXX,   KC_UP,   XXXXXXX,  XXXXXXX, DF(L_ENG),
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
       KC_LSFT,   KC_G,     KC_A,     KC_S,     KC_D,     KC_F,                         XXXXXXX,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_SCLN,  XXXXXXX,
   //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      KC_LCTL,   KC_B,     KC_Z,     KC_X,     KC_C,     KC_V,                         XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX, DF(L_ENG),
+      KC_LCTL,   KC_B,     KC_Z,     KC_X,     KC_C,     KC_V,                         XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
   //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
                                               KC_LALT,  KC_SPC,    TD(4),      KC_H,   KC_SPC,   XXXXXXX
                                          //`+---------+---------+---------||---------+---------+---------+'
@@ -208,8 +206,8 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
         case L_RU:
             rgblight_sethsv(HSV_GREEN);
             break;
-        case L_NUMF:
-            rgblight_sethsv(HSV_CYAN);
+        case L_GAME:
+            rgblight_sethsv(HSV_YELLOW);
             break;
         case L_PUNC:
             rgblight_sethsv(HSV_MAGENTA);
@@ -220,8 +218,8 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
         case L_IDK2:
             rgblight_sethsv(HSV_RED);
             break;
-        case L_GAME:
-            rgblight_sethsv(HSV_YELLOW);
+        case L_NUMF:
+            rgblight_sethsv(HSV_CYAN);
             break;
         default: // for any other layers, or the default layer
             rgblight_sethsv(HSV_WHITE);
@@ -238,8 +236,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         case L_RU:
             rgblight_sethsv(HSV_GREEN);
             break;
-        case L_NUMF:
-            rgblight_sethsv(HSV_CYAN);
+        case L_GAME:
+            rgblight_sethsv(HSV_YELLOW);
             break;
         case L_PUNC:
             rgblight_sethsv(HSV_MAGENTA);
@@ -250,8 +248,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         case L_IDK2:
             rgblight_sethsv(HSV_RED);
             break;
-        case L_GAME:
-            rgblight_sethsv(HSV_YELLOW);
+        case L_NUMF:
+            rgblight_sethsv(HSV_CYAN);
             break;
         default: // for any other layers, or the default layer
             rgblight_sethsv(HSV_WHITE);
