@@ -140,10 +140,6 @@ void user_timer(void) {
     lang_shift_user_timer();
 };
 
-void matrix_scan_user(void) {
-    user_timer();
-};
-
 
 // Tap Dance
 void keyboard_post_init_user(void) {
@@ -203,11 +199,19 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
         case L_ENG:
             rgblight_sethsv(HSV_ORANGE);
             break;
-        case L_RU:
-            rgblight_sethsv(HSV_GREEN);
-            break;
         case L_GAME:
             rgblight_sethsv(HSV_YELLOW);
+            break;
+            rgblight_sethsv(HSV_WHITE);
+            break;
+    }
+    return state;
+};
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    switch (get_highest_layer(state)) {
+        case L_RU:
+            rgblight_sethsv(HSV_GREEN);
             break;
         case L_PUNC:
             rgblight_sethsv(HSV_MAGENTA);
@@ -228,32 +232,16 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
     return state;
 };
 
-layer_state_t layer_state_set_user(layer_state_t state) {
-    switch (get_highest_layer(state)) {
-        case L_ENG:
-            rgblight_sethsv(HSV_ORANGE);
-            break;
-        case L_RU:
-            rgblight_sethsv(HSV_GREEN);
-            break;
-        case L_GAME:
-            rgblight_sethsv(HSV_YELLOW);
-            break;
-        case L_PUNC:
-            rgblight_sethsv(HSV_MAGENTA);
-            break;
-        case L_IDK1:
-            rgblight_sethsv(HSV_BLUE);
-            break;
-        case L_IDK2:
-            rgblight_sethsv(HSV_RED);
-            break;
-        case L_NUMF:
-            rgblight_sethsv(HSV_CYAN);
-            break;
-        default: // for any other layers, or the default layer
-            rgblight_sethsv(HSV_WHITE);
-            break;
+void matrix_scan_user(void) {
+    user_timer();
+
+    // Проверяем, активен ли слой
+    if (!layer_state_cmp(layer_state, L_PUNC) &&
+        !layer_state_cmp(layer_state, L_IDK1) &&
+        !layer_state_cmp(layer_state, L_IDK2) &&
+        !layer_state_cmp(layer_state, L_NUMF) &&
+        !layer_state_cmp(layer_state, L_RU)) {
+    // Если ни один из этих слоев не активен, обновляем подсветку на основе текущего базового слоя
+    default_layer_state_set_user(default_layer_state);
     }
-    return state;
-};
+}
