@@ -202,6 +202,7 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
         case L_GAME:
             rgblight_sethsv(HSV_YELLOW);
             break;
+        default: // for any other layers, or the default layer
             rgblight_sethsv(HSV_WHITE);
             break;
     }
