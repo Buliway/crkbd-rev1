@@ -33,6 +33,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define LANG_CHANGE_DEFAULT LANG_CHANGE_ALT_SHIFT
 
-#define DYNAMIC_KEYMAP_LAYER_COUNT 8
+#define DYNAMIC_KEYMAP_LAYER_COUNT 9
 
 #define RGBLIGHT_LAYERS
