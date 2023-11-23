@@ -132,13 +132,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [L_GAME] = LAYOUT(
     //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
-       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+         KC_TAB,       KC_T,       KC_Q,      KC_W,       KC_E,       KC_R,                                KC_Y,       KC_U,       KC_I,       KC_O,       KC_P,     DF(L_ENG),
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+         KC_LSFT,      KC_G,       KC_A,      KC_S,       KC_D,       KC_F,                                KC_H,       KC_J,       KC_UP,      KC_K,       KC_L,      KC_GRV,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+         KC_LCTL,      KC_B,       KC_Z,      KC_X,       KC_C,       KC_V,                                KC_N,      KC_LEFT,    KC_DOWN,    KC_RGHT,     KC_M,      KC_SLSH,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
-                                                       XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
+                                                       KC_LALT,     KC_SPC,     TD(19),     KC_H,    KC_SPC,    TD(20)
                                                  //`+-----------+-----------+-----------||-----------+-----------+-----------+'
     )
 };
@@ -319,10 +319,10 @@ void keyboard_post_init_user(void) {
 layer_state_t default_layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case L_ENG:
-            rgblight_sethsv(HSV_ORANGE);
+            rgblight_sethsv(HSV_ROSE);
             break;
         case L_GAME:
-            rgblight_sethsv(HSV_YELLOW);
+            rgblight_sethsv(HSV_ORANGE);
             break;
         default: // for any other layers, or the default layer
             rgblight_sethsv(HSV_WHITE);
@@ -334,19 +334,25 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case L_RU:
-            rgblight_sethsv(HSV_GREEN);
+            rgblight_sethsv(HSV_VIOLET);
             break;
-        case L_PUNC:
+        case L_MEDIA:
             rgblight_sethsv(HSV_MAGENTA);
             break;
-        case L_IDK1:
+        case L_NAV:
+            rgblight_sethsv(HSV_CYAN);
+            break;
+        case L_MOUSE:
+            rgblight_sethsv(HSV_YELLOW);
+            break;
+        case L_SYM:
+            rgblight_sethsv(HSV_GREEN);
+            break;
+        case L_NUM:
             rgblight_sethsv(HSV_BLUE);
             break;
-        case L_IDK2:
+        case L_FUN:
             rgblight_sethsv(HSV_RED);
-            break;
-        case L_NUMF:
-            rgblight_sethsv(HSV_CYAN);
             break;
         default: // for any other layers, or the default layer
             rgblight_sethsv(HSV_WHITE);
@@ -359,10 +365,12 @@ void matrix_scan_user(void) {
     user_timer();
 
     // Проверяем, активен ли слой
-    if (!layer_state_cmp(layer_state, L_PUNC) &&
-        !layer_state_cmp(layer_state, L_IDK1) &&
-        !layer_state_cmp(layer_state, L_IDK2) &&
-        !layer_state_cmp(layer_state, L_NUMF) &&
+    if (!layer_state_cmp(layer_state, L_MEDIA) &&
+        !layer_state_cmp(layer_state, L_NAV) &&
+        !layer_state_cmp(layer_state, L_MOUSE) &&
+        !layer_state_cmp(layer_state, L_SYM) &&
+        !layer_state_cmp(layer_state, L_NUM) &&
+        !layer_state_cmp(layer_state, L_FUN) &&
         !layer_state_cmp(layer_state, L_RU)) {
     // Если ни один из этих слоев не активен, обновляем подсветку на основе текущего базового слоя
     default_layer_state_set_user(default_layer_state);
