@@ -17,4 +17,4 @@ https://get.vial.today/docs/porting-to-vial.html
 https://docs.qmk.fm/#/newbs_flashing
 
 # Моя раскладка
-![Keyboard](/img/test.jpg)
+![Keyboard](/img/layers.png)
