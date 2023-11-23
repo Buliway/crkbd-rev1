@@ -25,108 +25,122 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define L_ENG 0
 #define L_GAME 1
 #define L_RU 2
-#define L_PUNC 3
-#define L_IDK1 4
-#define L_IDK2 5
-#define L_NUMF 6
+#define L_MEDIA 3
+#define L_NAV 4
+#define L_MOUSE 5
+#define L_SYM 6
+#define L_NUM 7
+#define L_FUN 8
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-  [L_ENG] = LAYOUT(
-  //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      KC_ESC,    EN_F,     EN_L,     EN_H,     EN_V,     EN_Z,                          EN_Q,     EN_W,     EN_U,     EN_O,     EN_Y,   DF(L_GAME),
-  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      XXXXXXX,   EN_S,     EN_R,     EN_N,     EN_T,     EN_K,                          EN_C,     EN_D,     EN_E,     EN_A,     EN_I,    KC_LWIN,
-  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      CTRL_0 ,   EN_X,    XXXXXXX,   EN_B,     EN_M,     EN_J,                          EN_P,     EN_G,    XXXXXXX,  XXXXXXX,  XXXXXXX,   TD(6),
-  //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
-                                                TD(0),   TD(1),  KC_LSHIFT,   TD(2),    TD(3),    KC_TAB
-                                         //`+---------+---------+---------||---------+---------+---------+'
-  ),
-
-  [L_RU] = LAYOUT(
-  //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      KC_ESC,    RU_H,     RU_G,     RU_JA,    RU_Y,     RU_U,                          RU_D,     RU_CH,    RU_M,     RU_ZH,    RU_E,     RU_SC,
-  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-       RU_F,     RU_N,     RU_I,     RU_JE,    RU_O,     RU_SF,                         RU_P,     RU_V,     RU_T,     RU_S,     RU_R,     RU_TS,
-  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-       TD(5),    RU_SH,    RU_B,     RU_JU,    RU_A,     RU_JO,                         RU_HD,    RU_K,     RU_L,     RU_Z,     RU_J,     ALT_0,
-  //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
-                                                TD(0),   TD(1),  KC_LSHIFT,   TD(2),    TD(3),    KC_TAB
-                                         //`+---------+---------+---------||---------+---------+---------+'
-  ),
-
-  [L_NUMF] = LAYOUT(
-  //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      XXXXXXX,  XXXXXXX,   KC_1,     KC_2,     KC_3,    XXXXXXX,                       XXXXXXX,   KC_F1,    KC_F2,    KC_F3,    KC_F4,   XXXXXXX,
-  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      XXXXXXX,   KC_0,     KC_4,     KC_5,     KC_6,    KC_PSCR,                       XXXXXXX,   KC_F5,    KC_F6,    KC_F7,    KC_F8,   KC_LWIN,
-  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      KC_LCTL,  XXXXXXX,   KC_7,     KC_8,     KC_9,    XXXXXXX,                       XXXXXXX,   KC_F9,    KC_F10,   KC_F11,   KC_F12,  KC_LALT,
-  //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
-                                              XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX
-                                         //`+---------+---------+---------||---------+---------+---------+'
-  ),
-
-  [L_PUNC] = LAYOUT(
-  //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      AG_PERC,  EN_QUOT,  AG_MINS,  AG_SLSH,   AG_EQL,  AG_PLUS,                       EN_PIPE,  AG_RPRN,  EN_RCBR,  EN_RBRC,   EN_GT,   EN_TILD,
-  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      EN_CIRC,  AG_DQUO,  AG_UNDS,  AG_COMM,   AG_DOT,   EN_AT,                        AG_BSLS,  AG_LPRN,  EN_LCBR,  EN_LBRC,   EN_LT,   EN_GRV,
-  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      XXXXXXX,  EN_DLR,   AG_SCLN,  AG_ASTR,  AG_QUES,  RU_NUME,                       XXXXXXX,  AG_EXCL,  EN_HASH,  AG_COLN,  EN_AMPR,  XXXXXXX,
-  //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
-                                              XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX
-                                         //`+---------+---------+---------||---------+---------+---------+'
-  ),
-
-  [L_IDK1] = LAYOUT(
-  //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
-       XXXXXXX,   C(KC_SLSH),  C(KC_R),    C(KC_Z),    C(KC_S),    XXXXXXX,                             XXXXXXX,    C(KC_T),    C(KC_N),   C(S(KC_P)),  C(KC_F5),   XXXXXXX,
-  //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-      C(S(KC_V)),  C(KC_W),    C(KC_A),    C(KC_C),    C(KC_V),    C(KC_X),                             XXXXXXX,    A(KC_D),   A(KC_ENT),   C(KC_F),    C(KC_J),    XXXXXXX,
-  //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-       XXXXXXX,   C(S(KC_T)),  C(KC_D),  C(KC_PGUP),  C(KC_PGDN),  XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    G(KC_L),
-  //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+    [L_ENG] = LAYOUT(
+    //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
                                                        XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
                                                  //`+-----------+-----------+-----------||-----------+-----------+-----------+'
-  ),
+    ),
 
-  [L_IDK2] = LAYOUT(
-  //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------------------------.
-       KC_HOME,  C(KC_LEFT),  C(KC_UP),  C(KC_DOWN),  C(KC_RGHT),  KC_PGUP,                               LA_SYNC,   C(S(KC_LEFT)),  C(S(KC_UP)),  C(S(KC_DOWN)),  C(S(KC_RGHT)),    XXXXXXX,
-  //|-----------+-----------+-----------+-----------+-----------+-----------|                        |--------------+--------------+--------------+--------------+--------------+--------------|
-       KC_END,     KC_LEFT,     KC_UP,     KC_DOWN,    KC_RGHT,    KC_PGDN,                               KC_VOLD,       KC_MPLY,       KC_MNXT,       KC_MPRV,       KC_MUTE,       KC_VOLU,
-  //|-----------+-----------+-----------+-----------+-----------+-----------|                        |--------------+--------------+--------------+--------------+--------------+--------------|
-       KC_LCTL,    KC_WH_L,    KC_WH_U,    KC_WH_D,    KC_WH_R,    KC_DEL,                                RGB_TOG,       LA_CAPS,       LA_ALSH,       LA_CTSH,       LA_WISP,       KC_LALT,
-  //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+--------------+--------------+--------------+--------------+--------------+--------------|
-                                                       XXXXXXX,    XXXXXXX,    XXXXXXX,    KC_LSHIFT,     XXXXXXX,       XXXXXXX
-                                                 //`+-----------+-----------+-----------||-----------+--------------+--------------+'
-  ),
+    [L_RU] = LAYOUT(
+    //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+                                                       XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
+                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
+    ),
 
-  [L_GAME] = LAYOUT(
-  //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-      KC_TAB,    KC_T,     KC_Q,     KC_W,     KC_E,     KC_R,                          KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,   DF(L_ENG),
-  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      KC_LSFT,   KC_G,     KC_A,     KC_S,     KC_D,     KC_F,                          KC_H,     KC_J,     KC_UP,    KC_K,     KC_L,    KC_GRV,
-  //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-      KC_LCTL,   KC_B,     KC_Z,     KC_X,     KC_C,     KC_V,                          KC_N,    KC_LEFT,  KC_DOWN,  KC_RGHT,   KC_M,    KC_SLSH,
-  //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
-                                              KC_LALT,  KC_SPC,    TD(4),      KC_H,   KC_SPC,  KC_ENTER
-                                         //`+---------+---------+---------||---------+---------+---------+'
-  )
+    [L_MEDIA] = LAYOUT(
+    //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+                                                       XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
+                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
+    ),
 
-  // [7] = LAYOUT(
-  // //,-----------------------------------------------------------.                    ,-----------------------------------------------------------.
-  //     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-  // //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-  //     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-  // //|---------+---------+---------+---------+---------+---------|                    |---------+---------+---------+---------+---------+---------|
-  //     XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-  // //|---------+---------+---------+---------+---------+---------+---------||---------+---------+---------+---------+---------+---------+---------|
-  //                                             XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,  XXXXXXX
-  //                                        //`+---------+---------+---------||---------+---------+---------+'
-  // )
+    [L_NAV] = LAYOUT(
+    //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+                                                       XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
+                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
+    ),
+
+    [L_MOUSE] = LAYOUT(
+    //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+                                                       XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
+                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
+    ),
+
+    [L_SYM] = LAYOUT(
+    //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+                                                       XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
+                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
+    ),
+
+    [L_NUM] = LAYOUT(
+    //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+                                                       XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
+                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
+    ),
+
+    [L_FUN] = LAYOUT(
+    //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+                                                       XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
+                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
+    ),
+
+    [L_GAME] = LAYOUT(
+    //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
+       XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
+    //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
+                                                       XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
+                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
+    )
 };
 
 //idk lang_shift
@@ -143,54 +157,162 @@ void user_timer(void) {
 
 // Tap Dance
 void keyboard_post_init_user(void) {
-    vial_tap_dance_entry_t td0 = { KC_PSCREEN,
-                                   MO(L_IDK2),
-                                   KC_NO,
-                                   KC_NO,
-                                   TAPPING_TERM };
-    dynamic_keymap_set_tap_dance(0, &td0); // the first value corresponds to the TD(i) slot
+//Thumb
+   vial_tap_dance_entry_t td0 = { KC_ENT,   // Enter on tap, Media layer on hold
+                                  MO(L_MEDIA),
+                                  KC_NO,
+                                  KC_NO,
+                                  TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(0, &td0); // the first value corresponds to the TD(i) slot
 
-    vial_tap_dance_entry_t td1 = { KC_BSPACE,
-                                   MO(L_IDK1),
-                                   LCTL(KC_BSPACE),
-                                   KC_BSPACE,
-                                   TAPPING_TERM };
-    dynamic_keymap_set_tap_dance(1, &td1);
+   vial_tap_dance_entry_t td1 = { KC_BSPC,   // Backspace on tap, Mouse layer on hold
+                                  MO(L_MOUSE),
+                                  KC_NO,
+                                  KC_NO,
+                                  TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(1, &td1);
 
-    vial_tap_dance_entry_t td2 = { KC_ENTER,
-                                   MO(L_NUMF),
-                                   KC_NO,
-                                   KC_NO,
-                                   TAPPING_TERM };
-    dynamic_keymap_set_tap_dance(2, &td2);
+   vial_tap_dance_entry_t td2 = { KC_SPC,   // Space on tap, Fun layer on hold
+                                  MO(L_FUN),
+                                  KC_NO,
+                                  KC_NO,
+                                  TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(2, &td2);
 
-    vial_tap_dance_entry_t td3 = { KC_SPACE,
-                                   MO(L_PUNC),
-                                   KC_NO,
-                                   KC_SPACE,
-                                   TAPPING_TERM };
-    dynamic_keymap_set_tap_dance(3, &td3);
 
-    vial_tap_dance_entry_t td4 = { KC_ESCAPE,
-                                   MO(L_NUMF),
-                                   KC_NO,
-                                   KC_NO,
-                                   TAPPING_TERM };
-    dynamic_keymap_set_tap_dance(4, &td4);
 
-    vial_tap_dance_entry_t td5 = { LA_CHNG,
-                                   CTRL_0,
-                                   KC_NO,
-                                   KC_NO,
-                                   TAPPING_TERM };
-    dynamic_keymap_set_tap_dance(5, &td5);
+// Mod keys on ENG layer
+   vial_tap_dance_entry_t td3 = { EN_S,   // S on tap, Win on hold
+                                  KC_LWIN,
+                                  KC_NO,
+                                  KC_NO,
+                                  TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(3, &td3);
 
-    vial_tap_dance_entry_t td6 = { LA_CHNG,
-                                   ALT_0,
+   vial_tap_dance_entry_t td4 = { EN_I,   // I on tap, Win on hold
+                                  KC_LWIN,
+                                  KC_NO,
+                                  KC_NO,
+                                  TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(4, &td4);
+
+   vial_tap_dance_entry_t td5 = { EN_R,   // R on tap, Alt on hold
+                                  KC_LALT,
+                                  KC_NO,
+                                  KC_NO,
+                                  TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(5, &td5);
+
+   vial_tap_dance_entry_t td6 = { EN_A,   // A on tap, Alt on hold
+                                  KC_LALT,
+                                  KC_NO,
+                                  KC_NO,
+                                  TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(6, &td6);
+
+   vial_tap_dance_entry_t td7 = { EN_N,   // N on tap, Ctrl on hold
+                                  KC_LCTL,
+                                  KC_NO,
+                                  KC_NO,
+                                  TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(7, &td7);
+
+   vial_tap_dance_entry_t td8 = { EN_E,   // E on tap, Ctrl on hold
+                                  KC_LCTL,
+                                  KC_NO,
+                                  KC_NO,
+                                  TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(8, &td8);
+
+   vial_tap_dance_entry_t td9 = { EN_T,   // T on tap, Shift on hold
+                                  KC_LSFT,
+                                  KC_NO,
+                                  KC_NO,
+                                  TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(9, &td9);
+
+   vial_tap_dance_entry_t td10 = { EN_D,   // D on tap, Shift on hold
+                                   KC_LSFT,
                                    KC_NO,
                                    KC_NO,
                                    TAPPING_TERM };
-    dynamic_keymap_set_tap_dance(6, &td6);
+   dynamic_keymap_set_tap_dance(10, &td10);
+
+
+
+// Mod keys on RU layer
+   vial_tap_dance_entry_t td11 = { RU_N,   // Н on tap, Win on hold
+                                   WIN_EN,
+                                   KC_NO,
+                                   KC_NO,
+                                   TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(11, &td11);
+
+   vial_tap_dance_entry_t td12 = { RU_R,   // Р on tap, Win on hold
+                                   WIN_EN,
+                                   KC_NO,
+                                   KC_NO,
+                                   TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(12, &td12);
+
+   vial_tap_dance_entry_t td13 = { RU_I,   // И on tap, Alt on hold
+                                   ALT_EN,
+                                   KC_NO,
+                                   KC_NO,
+                                   TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(13, &td13);
+
+   vial_tap_dance_entry_t td14 = { RU_S,   // С on tap, Alt on hold
+                                   ALT_EN,
+                                   KC_NO,
+                                   KC_NO,
+                                   TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(14, &td14);
+
+   vial_tap_dance_entry_t td15 = { RU_JE,   // Е on tap, Ctrl on hold
+                                   CTRL_EN,
+                                   KC_NO,
+                                   KC_NO,
+                                   TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(15, &td15);
+
+   vial_tap_dance_entry_t td16 = { RU_T,   // Т on tap, Ctrl on hold
+                                   CTRL_EN,
+                                   KC_NO,
+                                   KC_NO,
+                                   TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(16, &td16);
+
+   vial_tap_dance_entry_t td17 = { RU_O,   // О on tap, Shift on hold
+                                   KC_LSFT,
+                                   KC_NO,
+                                   KC_NO,
+                                   TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(17, &td17);
+
+   vial_tap_dance_entry_t td18 = { RU_V,   // В on tap, Shift on hold
+                                   KC_LSFT,
+                                   KC_NO,
+                                   KC_NO,
+                                   TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(18, &td18);
+
+
+
+// Game layer
+   vial_tap_dance_entry_t td19 = { KC_ESC,   // Esc on tap, Num layer on hold
+                                   MO(L_NUM),
+                                   KC_NO,
+                                   KC_NO,
+                                   TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(19, &td19);
+
+   vial_tap_dance_entry_t td20 = { KC_ENT,   // Enter on tap, Fun layer on hold
+                                   MO(L_FUN),
+                                   KC_NO,
+                                   KC_NO,
+                                   TAPPING_TERM };
+   dynamic_keymap_set_tap_dance(20, &td20);
 };
 
 // Lighting Layers
