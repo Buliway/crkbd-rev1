@@ -48,11 +48,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [L_RU] = LAYOUT(
     //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
-         KC_ESC,      RU_H,       RU_G,       RU_JA,      RU_Y,       RU_U,                                 RU_D,      RU_CH,      RU_M,       RU_ZH,      RU_E,      RU_SC,
+         KC_ESC,       RU_F,       RU_E,      RU_JA,      RU_Y,       RU_HD,                                RU_J,       RU_B,      RU_L,       RU_K,      RU_TS,      RU_ZH,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-          RU_F,      TD(11),     TD(13),     TD(15),     TD(17),      RU_SF,                                RU_P,      TD(18),    TD(16),     TD(14),     TD(12),     RU_TS,
+          RU_SC,     TD(11),     TD(13),     TD(15),     TD(17),      RU_SF,                                RU_D,      TD(18),    TD(16),     TD(14),     TD(12),     RU_CH,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-         LA_CHNG,     RU_SH,      RU_B,       RU_JU,      RU_A,       RU_JO,                               RU_HD,      RU_K,       RU_L,       RU_Z,       RU_J,     XXXXXXX,
+         LA_CHNG,     RU_SH,      RU_JU,       RU_U,      RU_I,       RU_JO,                                RU_G,       RU_M,      RU_R,       RU_P,       RU_H,     XXXXXXX,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
                                                         TD(0),      TD(1),    MO(L_NAV),   MO(L_SYM),    TD(2),    MO(L_NUM)
                                                  //`+-----------+-----------+-----------||-----------+-----------+-----------+'
@@ -241,56 +241,56 @@ void keyboard_post_init_user(void) {
 
 
 // Mod keys on RU layer
-   vial_tap_dance_entry_t td11 = { RU_N,   // Н on tap, Win on hold
+   vial_tap_dance_entry_t td11 = { RU_S,   // С on tap, Win on hold
                                    WIN_EN,
                                    KC_NO,
                                    KC_NO,
                                    TAPPING_TERM };
    dynamic_keymap_set_tap_dance(11, &td11);
 
-   vial_tap_dance_entry_t td12 = { RU_R,   // Р on tap, Win on hold
+   vial_tap_dance_entry_t td12 = { RU_Z,   // З on tap, Win on hold
                                    WIN_EN,
                                    KC_NO,
                                    KC_NO,
                                    TAPPING_TERM };
    dynamic_keymap_set_tap_dance(12, &td12);
 
-   vial_tap_dance_entry_t td13 = { RU_I,   // И on tap, Alt on hold
+   vial_tap_dance_entry_t td13 = { RU_JE,   // Е on tap, Alt on hold
                                    ALT_EN,
                                    KC_NO,
                                    KC_NO,
                                    TAPPING_TERM };
    dynamic_keymap_set_tap_dance(13, &td13);
 
-   vial_tap_dance_entry_t td14 = { RU_S,   // С on tap, Alt on hold
+   vial_tap_dance_entry_t td14 = { RU_V,   // В on tap, Alt on hold
                                    ALT_EN,
                                    KC_NO,
                                    KC_NO,
                                    TAPPING_TERM };
    dynamic_keymap_set_tap_dance(14, &td14);
 
-   vial_tap_dance_entry_t td15 = { RU_JE,   // Е on tap, Ctrl on hold
+   vial_tap_dance_entry_t td15 = { RU_O,   // О on tap, Ctrl on hold
                                    CTRL_EN,
                                    KC_NO,
                                    KC_NO,
                                    TAPPING_TERM };
    dynamic_keymap_set_tap_dance(15, &td15);
 
-   vial_tap_dance_entry_t td16 = { RU_T,   // Т on tap, Ctrl on hold
+   vial_tap_dance_entry_t td16 = { RU_N,   // Н on tap, Ctrl on hold
                                    CTRL_EN,
                                    KC_NO,
                                    KC_NO,
                                    TAPPING_TERM };
    dynamic_keymap_set_tap_dance(16, &td16);
 
-   vial_tap_dance_entry_t td17 = { RU_O,   // О on tap, Shift on hold
+   vial_tap_dance_entry_t td17 = { RU_A,   // А on tap, Shift on hold
                                    KC_LSFT,
                                    KC_NO,
                                    KC_NO,
                                    TAPPING_TERM };
    dynamic_keymap_set_tap_dance(17, &td17);
 
-   vial_tap_dance_entry_t td18 = { RU_V,   // В on tap, Shift on hold
+   vial_tap_dance_entry_t td18 = { RU_T,   // Т on tap, Shift on hold
                                    KC_LSFT,
                                    KC_NO,
                                    KC_NO,
