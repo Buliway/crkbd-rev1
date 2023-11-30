@@ -155,64 +155,6 @@ void user_timer(void) {
 };
 
 
-// Tap Dance
-// Tap Dance Definitions
-enum {
-    TD_0,
-    TD_1,
-    TD_2,
-    TD_3,
-    TD_4,
-    TD_5,
-    TD_6
-};
-
-// Tap Dance Finished Functions
-void td0_finished(qk_tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1 && !state->pressed) {
-        tap_code(KC_PSCREEN);
-    } else {
-        layer_on(L_IDK2);
-    }
-}
-
-void td1_finished(qk_tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1 && !state->pressed) {
-        tap_code(KC_BSPACE);
-    } else if (state->count == 2) {
-        tap_code16(LCTL(KC_BSPACE));
-    } else if (state->count == 1 && state->pressed) {
-        tap_code(KC_BSPACE);  // Tap + Hold
-    } else {
-        layer_on(L_IDK1);
-    }
-}
-
-// ... same logic for td2, td3, etc.
-
-// Tap Dance Reset Functions
-void td0_reset(qk_tap_dance_state_t *state, void *user_data) {
-    if (state->count != 1) {
-        layer_off(L_IDK2);
-    }
-}
-
-void td1_reset(qk_tap_dance_state_t *state, void *user_data) {
-    if (state->count != 1 && state->count != 2) {
-        layer_off(L_IDK1);
-    }
-}
-
-// ... same logic for td2, td3, etc.
-
-// Associate the Tap Dance functions with the Tap Dance enums
-qk_tap_dance_action_t tap_dance_actions[] = {
-    [TD_0] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, td0_finished, td0_reset),
-    [TD_1] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, td1_finished, td1_reset),
-    // ... same logic for td2, td3, etc.
-};
-
-
 // Lighting Layers
 layer_state_t default_layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
