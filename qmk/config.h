@@ -20,8 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-// #define VIAL_KEYBOARD_UID {0xCE, 0x08, 0x17, 0xF3, 0x0D, 0xE4, 0x4A, 0xC8}
-
 /* Select hand configuration */
 
 #define MASTER_LEFT
@@ -29,10 +27,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define EE_HANDS
 
 //#define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 150
+#define TAPPING_TERM 175
 
-#define LANG_CHANGE_DEFAULT LANG_CHANGE_ALT_SHIFT
-
-// #define DYNAMIC_KEYMAP_LAYER_COUNT 8
+#define LANG_CHANGE_DEFAULT LANG_CHANGE_CAPS
+// #define LANG_CHANGE_DEFAULT LANG_CHANGE_ALT_SHIFT
+// #define LANG_CHANGE_DEFAULT LANG_CHANGE_CTRL_SHIFT
+// #define LANG_CHANGE_DEFAULT LANG_CHANGE_WIN_SPACE
 
 #define RGBLIGHT_LAYERS

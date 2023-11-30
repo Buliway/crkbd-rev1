@@ -29,7 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define EE_HANDS
 
 //#define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 200
+#define TAPPING_TERM 175
 
 #define LANG_CHANGE_DEFAULT LANG_CHANGE_CAPS
 // #define LANG_CHANGE_DEFAULT LANG_CHANGE_ALT_SHIFT
