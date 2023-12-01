@@ -38,24 +38,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
          KC_ESC,      EN_F,       EN_L,       EN_H,       EN_V,      EN_Z,                                 EN_Q,       EN_W,       EN_U,       EN_O,       EN_Y,    DF(L_GAME),
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-         XXXXXXX,     TD(3),      TD(5),      TD(7),      TD(9),     EN_K,                                 EN_C,      TD(10),      TD(8),      TD(6),      TD(4),    XXXXXXX,
+         XXXXXXX,  WIN_T(EN_S),ALT_T(EN_R),CTL_T(EN_N),SFT_T(EN_T),  EN_K,                                 EN_C,    SFT_T(EN_D),CTL_T(EN_E),ALT_T(EN_A),WIN_T(EN_I),  XXXXXXX,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
          XXXXXXX,     EN_X,      XXXXXXX,     EN_B,       EN_M,      EN_J,                                 EN_P,       EN_G,      XXXXXXX,    XXXXXXX,    XXXXXXX,   LA_CHNG,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
-                                                        TD(0),      TD(1),    MO(L_NAV),   MO(L_SYM),    TD(2),    MO(L_NUM)
-                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
+                            LT(L_MEDIA, KC_ENT), LT(L_MOUSE, KC_BSPC),      MO(L_NAV),            MO(L_SYM),       LT(L_FUN, KC_SPC),       MO(L_NUM)
+                        //`+--------------------+--------------------+--------------------||--------------------+--------------------+--------------------+'
     ),
 
     [L_RU] = LAYOUT(
     //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
          KC_ESC,       RU_F,       RU_E,      RU_JA,      RU_Y,       RU_HD,                                RU_J,       RU_B,      RU_L,       RU_K,      RU_TS,      RU_ZH,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-          RU_SC,     TD(11),     TD(13),     TD(15),     TD(17),      RU_SF,                                RU_D,      TD(18),    TD(16),     TD(14),     TD(12),     RU_CH,
+          RU_SC,   WIN_T(RU_S),ALT_T(RU_JE),CTL_T(RU_O),SFT_T(RU_A),  RU_SF,                                RU_D,   SFT_T(RU_T),CTL_T(RU_N),ALT_T(RU_V),WIN_T(RU_Z),  RU_CH,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
          LA_CHNG,     RU_SH,      RU_JU,       RU_U,      RU_I,       RU_JO,                                RU_G,       RU_M,      RU_R,       RU_P,       RU_H,     XXXXXXX,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
-                                                        TD(0),      TD(1),    MO(L_NAV),   MO(L_SYM),    TD(2),    MO(L_NUM)
-                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
+                            LT(L_MEDIA, KC_ENT), LT(L_MOUSE, KC_BSPC),      MO(L_NAV),            MO(L_SYM),       LT(L_FUN, KC_SPC),       MO(L_NUM)
+                        //`+--------------------+--------------------+--------------------||--------------------+--------------------+--------------------+'
     ),
 
     [L_MEDIA] = LAYOUT(
@@ -66,8 +66,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
          XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             XXXXXXX,    LA_CAPS,    LA_ALSH,    LA_CTSH,    LA_WISP,    XXXXXXX,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
-                                                       XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
-                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
+                                                         XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
+                                                   //`+-----------+-----------+-----------||-----------+-----------+-----------+'
     ),
 
     [L_NAV] = LAYOUT(
@@ -78,8 +78,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
          XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                              KC_INS,    KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     KC_DEL,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
-                                                       XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
-                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
+                                                         XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
+                                                   //`+-----------+-----------+-----------||-----------+-----------+-----------+'
     ),
 
     [L_MOUSE] = LAYOUT(
@@ -90,8 +90,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
          XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    KC_ACL2,                             KC_BTN4,    KC_WH_L,    KC_WH_D,    KC_WH_U,    KC_WH_R,    XXXXXXX,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
-                                                       XXXXXXX,    XXXXXXX,    XXXXXXX,     KC_BTN1,    KC_BTN3,    KC_BTN2
-                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
+                                                         XXXXXXX,    XXXXXXX,    XXXXXXX,     KC_BTN1,    KC_BTN3,    KC_BTN2
+                                                   //`+-----------+-----------+-----------||-----------+-----------+-----------+'
     ),
 
     [L_SYM] = LAYOUT(
@@ -102,8 +102,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
          XXXXXXX,    AG_SLSH,    RU_NUME,    AG_DQUO,    EN_QUOT,    EN_TILD,                             EN_PIPE,    AG_RPRN,    EN_RCBR,    EN_RBRC,     EN_GT,     XXXXXXX,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
-                                                       AG_UNDS,    AG_COLN,    AG_SCLN,     XXXXXXX,    XXXXXXX,    XXXXXXX
-                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
+                                                         AG_UNDS,    AG_COLN,    AG_SCLN,     XXXXXXX,    XXXXXXX,    XXXXXXX
+                                                   //`+-----------+-----------+-----------||-----------+-----------+-----------+'
     ),
 
     [L_NUM] = LAYOUT(
@@ -114,8 +114,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
          XXXXXXX,     XXXXXXX,    AG_7,       AG_8,       AG_9,      XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
-                                                       XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
-                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
+                                                         XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
+                                                   //`+-----------+-----------+-----------||-----------+-----------+-----------+'
     ),
 
     [L_FUN] = LAYOUT(
@@ -126,8 +126,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
          XXXXXXX,     KC_F9,     KC_F10,     KC_F11,     KC_F12,     XXXXXXX,                             XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
-                                                       XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
-                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
+                                                         XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX,    XXXXXXX,    XXXXXXX
+                                                   //`+-----------+-----------+-----------||-----------+-----------+-----------+'
     ),
 
     [L_GAME] = LAYOUT(
@@ -138,10 +138,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
          KC_LCTL,      KC_B,       KC_Z,      KC_X,       KC_C,       KC_V,                                KC_N,      KC_LEFT,    KC_DOWN,    KC_RGHT,     KC_M,      KC_SLSH,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
-                                                       KC_LALT,     KC_SPC,     TD(19),     KC_H,    KC_SPC,    TD(20)
-                                                 //`+-----------+-----------+-----------||-----------+-----------+-----------+'
+                                   KC_LALT,             KC_SPC,         LT(L_NUM, KC_ESC)           KC_H,               KC_SPC,         LT(L_FUN, KC_ENT)
+                        //`+--------------------+--------------------+--------------------||--------------------+--------------------+--------------------+'
     )
 };
+
 
 //idk lang_shift
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -154,166 +155,6 @@ void user_timer(void) {
     lang_shift_user_timer();
 };
 
-
-// Tap Dance
-void keyboard_post_init_user(void) {
-//Thumb
-   vial_tap_dance_entry_t td0 = { KC_ENT,   // Enter on tap, Media layer on hold
-                                  MO(L_MEDIA),
-                                  KC_NO,
-                                  KC_NO,
-                                  TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(0, &td0); // the first value corresponds to the TD(i) slot
-
-   vial_tap_dance_entry_t td1 = { KC_BSPC,   // Backspace on tap, Mouse layer on hold
-                                  MO(L_MOUSE),
-                                  KC_NO,
-                                  KC_NO,
-                                  TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(1, &td1);
-
-   vial_tap_dance_entry_t td2 = { KC_SPC,   // Space on tap, Fun layer on hold
-                                  MO(L_FUN),
-                                  KC_NO,
-                                  KC_NO,
-                                  TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(2, &td2);
-
-
-
-// Mod keys on ENG layer
-   vial_tap_dance_entry_t td3 = { EN_S,   // S on tap, Win on hold
-                                  KC_LWIN,
-                                  KC_NO,
-                                  KC_NO,
-                                  TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(3, &td3);
-
-   vial_tap_dance_entry_t td4 = { EN_I,   // I on tap, Win on hold
-                                  KC_LWIN,
-                                  KC_NO,
-                                  KC_NO,
-                                  TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(4, &td4);
-
-   vial_tap_dance_entry_t td5 = { EN_R,   // R on tap, Alt on hold
-                                  KC_LALT,
-                                  KC_NO,
-                                  KC_NO,
-                                  TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(5, &td5);
-
-   vial_tap_dance_entry_t td6 = { EN_A,   // A on tap, Alt on hold
-                                  KC_LALT,
-                                  KC_NO,
-                                  KC_NO,
-                                  TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(6, &td6);
-
-   vial_tap_dance_entry_t td7 = { EN_N,   // N on tap, Ctrl on hold
-                                  KC_LCTL,
-                                  KC_NO,
-                                  KC_NO,
-                                  TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(7, &td7);
-
-   vial_tap_dance_entry_t td8 = { EN_E,   // E on tap, Ctrl on hold
-                                  KC_LCTL,
-                                  KC_NO,
-                                  KC_NO,
-                                  TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(8, &td8);
-
-   vial_tap_dance_entry_t td9 = { EN_T,   // T on tap, Shift on hold
-                                  KC_LSFT,
-                                  KC_NO,
-                                  KC_NO,
-                                  TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(9, &td9);
-
-   vial_tap_dance_entry_t td10 = { EN_D,   // D on tap, Shift on hold
-                                   KC_LSFT,
-                                   KC_NO,
-                                   KC_NO,
-                                   TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(10, &td10);
-
-
-
-// Mod keys on RU layer
-   vial_tap_dance_entry_t td11 = { RU_S,   // С on tap, Win on hold
-                                   WIN_EN,
-                                   KC_NO,
-                                   KC_NO,
-                                   TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(11, &td11);
-
-   vial_tap_dance_entry_t td12 = { RU_Z,   // З on tap, Win on hold
-                                   WIN_EN,
-                                   KC_NO,
-                                   KC_NO,
-                                   TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(12, &td12);
-
-   vial_tap_dance_entry_t td13 = { RU_JE,   // Е on tap, Alt on hold
-                                   ALT_EN,
-                                   KC_NO,
-                                   KC_NO,
-                                   TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(13, &td13);
-
-   vial_tap_dance_entry_t td14 = { RU_V,   // В on tap, Alt on hold
-                                   ALT_EN,
-                                   KC_NO,
-                                   KC_NO,
-                                   TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(14, &td14);
-
-   vial_tap_dance_entry_t td15 = { RU_O,   // О on tap, Ctrl on hold
-                                   CTRL_EN,
-                                   KC_NO,
-                                   KC_NO,
-                                   TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(15, &td15);
-
-   vial_tap_dance_entry_t td16 = { RU_N,   // Н on tap, Ctrl on hold
-                                   CTRL_EN,
-                                   KC_NO,
-                                   KC_NO,
-                                   TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(16, &td16);
-
-   vial_tap_dance_entry_t td17 = { RU_A,   // А on tap, Shift on hold
-                                   KC_LSFT,
-                                   KC_NO,
-                                   KC_NO,
-                                   TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(17, &td17);
-
-   vial_tap_dance_entry_t td18 = { RU_T,   // Т on tap, Shift on hold
-                                   KC_LSFT,
-                                   KC_NO,
-                                   KC_NO,
-                                   TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(18, &td18);
-
-
-
-// Game layer
-   vial_tap_dance_entry_t td19 = { KC_ESC,   // Esc on tap, Num layer on hold
-                                   MO(L_NUM),
-                                   KC_NO,
-                                   KC_NO,
-                                   TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(19, &td19);
-
-   vial_tap_dance_entry_t td20 = { KC_ENT,   // Enter on tap, Fun layer on hold
-                                   MO(L_FUN),
-                                   KC_NO,
-                                   KC_NO,
-                                   TAPPING_TERM };
-   dynamic_keymap_set_tap_dance(20, &td20);
-};
 
 // Lighting Layers
 layer_state_t default_layer_state_set_user(layer_state_t state) {
