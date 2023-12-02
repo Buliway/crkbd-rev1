@@ -17,7 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
-#include <stdio.h>
 
 #define CUSTOM_SAFE_RANGE SAFE_RANGE
 #include "lang_shift/include.h"
@@ -36,25 +35,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [L_ENG] = LAYOUT(
     //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
-         KC_ESC,      EN_F,       EN_L,       EN_H,       EN_V,      EN_Z,                                 EN_Q,       EN_W,       EN_U,       EN_O,       EN_Y,    DF(L_GAME),
+         KC_ESC,      KC_F,       KC_L,       KC_H,       KC_V,      KC_Z,                                 KC_Q,       KC_W,       KC_U,       KC_O,       KC_Y,    DF(L_GAME),
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-         XXXXXXX,  WIN_T(EN_S),ALT_T(EN_R),CTL_T(EN_N),SFT_T(EN_T),  EN_K,                                 EN_C,    SFT_T(EN_D),CTL_T(EN_E),ALT_T(EN_A),WIN_T(EN_I),  XXXXXXX,
+         XXXXXXX,  WIN_T(KC_S),ALT_T(KC_R),CTL_T(KC_N),SFT_T(KC_T),  KC_K,                                 KC_C,    SFT_T(KC_D),CTL_T(KC_E),ALT_T(KC_A),WIN_T(KC_I),  XXXXXXX,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-         XXXXXXX,     EN_X,      XXXXXXX,     EN_B,       EN_M,      EN_J,                                 EN_P,       EN_G,      XXXXXXX,    XXXXXXX,    XXXXXXX,   LA_CHNG,
+         XXXXXXX,     KC_X,      XXXXXXX,     KC_B,       KC_M,      KC_J,                                 KC_P,       KC_G,      XXXXXXX,    XXXXXXX,    XXXXXXX,   LA_CHNG,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
-                            LT(L_MEDIA, KC_ENT), LT(L_MOUSE, KC_BSPC),      MO(L_NAV),            MO(L_SYM),       LT(L_FUN, KC_SPC),       MO(L_NUM)
+                            LT(L_MEDIA, KC_ENT), LT(L_MOUSE, KC_BSPC),     MO(L_NAV),            MO(L_SYM),       LT(L_FUN, KC_SPC),       MO(L_NUM)
                         //`+--------------------+--------------------+--------------------||--------------------+--------------------+--------------------+'
     ),
 
     [L_RU] = LAYOUT(
     //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
-         KC_ESC,       RU_F,       RU_E,      RU_JA,      RU_Y,       RU_HD,                                RU_J,       RU_B,      RU_L,       RU_K,      RU_TS,      RU_ZH,
+         KC_ESC,       KC_A,     KC_QUOT,      KC_Z,      KC_S,      KC_RBRC,                               KC_Q,     KC_COMM,     KC_K,       KC_R,       KC_W,     KC_SCLN,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-          RU_SC,   WIN_T(RU_S),ALT_T(RU_JE),CTL_T(RU_O),SFT_T(RU_A),  RU_SF,                                RU_D,   SFT_T(RU_T),CTL_T(RU_N),ALT_T(RU_V),WIN_T(RU_Z),  RU_CH,
+           KC_O,   WIN_T(KC_C),ALT_T(KC_T),CTL_T(KC_J),SFT_T(KC_F),   KC_M,                                 KC_L,   SFT_T(KC_N),CTL_T(KC_Y),ALT_T(KC_D),WIN_T(KC_P),    KC_X,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-         LA_CHNG,     RU_SH,      RU_JU,       RU_U,      RU_I,       RU_JO,                                RU_G,       RU_M,      RU_R,       RU_P,       RU_H,     XXXXXXX,
+         LA_CHNG,      KC_I,     KC_DOT,       KC_E,      KC_B,      KC_GRV,                                KC_U,       KC_V,      KC_H,       KC_G,     KC_LBRC,     XXXXXXX,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
-                            LT(L_MEDIA, KC_ENT), LT(L_MOUSE, KC_BSPC),      MO(L_NAV),            MO(L_SYM),       LT(L_FUN, KC_SPC),       MO(L_NUM)
+                            LT(L_MEDIA, KC_ENT), LT(L_MOUSE, KC_BSPC),     MO(L_NAV),            MO(L_SYM),       LT(L_FUN, KC_SPC),       MO(L_NUM)
                         //`+--------------------+--------------------+--------------------||--------------------+--------------------+--------------------+'
     ),
 
@@ -98,9 +97,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
          XXXXXXX,     EN_AT,     EN_HASH,    EN_DLR,     AG_PERC,    EN_CIRC,                             EN_AMPR,    AG_ASTR,    AG_MINS,    AG_EQL,     AG_PLUS,    XXXXXXX,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-        C(EN_SLSH),  AG_EXCL,    AG_QUES,    AG_COMM,    AG_DOT,     EN_GRV,                              AG_BSLS,    AG_LPRN,    EN_LCBR,    EN_LBRC,     EN_LT,     XXXXXXX,
+         AG_COMM,    AG_EXCL,    AG_QUES,  COMMA_SPACE, SMART_DOT,   AG_DOT,                              AG_BSLS,    AG_LPRN,    EN_LCBR,    EN_LBRC,     EN_LT,     EN_GRV,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-         XXXXXXX,    AG_SLSH,    RU_NUME,    AG_DQUO,    EN_QUOT,    EN_TILD,                             EN_PIPE,    AG_RPRN,    EN_RCBR,    EN_RBRC,     EN_GT,     XXXXXXX,
+         XXXXXXX,    EN_SLSH,    RU_NUME,    AG_DQUO,    EN_QUOT,  ONCE_SHIFT,                            EN_PIPE,    AG_RPRN,    EN_RCBR,    EN_RBRC,     EN_GT,     EN_TILD,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
                                                          AG_UNDS,    AG_COLN,    AG_SCLN,     XXXXXXX,    XXXXXXX,    XXXXXXX
                                                    //`+-----------+-----------+-----------||-----------+-----------+-----------+'
@@ -144,11 +143,50 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 
-//idk lang_shift
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+bool shift_on_next_key = false;
+
+// Обработка нажатий?
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {   // В конце должно быть true, чтоб символ напечатался.
+    // lang_shift
     if (!lang_shift_process_record(keycode, record))
         return false;
-    return true;
+
+
+    // Одиночный шифт от GPT4. Потому что одиночный шифт lang_shift не нравится. Но этот шифт не умеет работать с кастом кейкодами lang_shift
+    if (keycode == ONCE_SHIFT && record->event.pressed) {
+        shift_on_next_key = true;
+        return false;
+    }
+
+    if (shift_on_next_key && record->event.pressed) {
+        register_code(KC_LSFT);
+        register_code(keycode);
+        unregister_code(keycode);
+        unregister_code(KC_LSFT);
+        shift_on_next_key = false;
+        return false;
+    }
+
+
+    // Умная точка
+    if (keycode == SMART_DOT && record->event.pressed) {
+        lang_shift_tap_key(AG_DOT);
+        register_code(KC_SPC);
+        unregister_code(KC_SPC);
+        shift_on_next_key = true;
+        return false;
+    }
+
+
+    // Запятая + пробел
+    if (keycode == COMMA_SPACE && record->event.pressed) {
+        lang_shift_tap_key(AG_COMM);
+        register_code(KC_SPC);
+        unregister_code(KC_SPC);
+        return false;
+    }
+
+    return true;    // Если условия выше не сработали, то отправить символ как есть
 };
 
 void user_timer(void) {
@@ -160,13 +198,13 @@ void user_timer(void) {
 layer_state_t default_layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case L_ENG:
-            rgblight_sethsv(HSV_PINK);      // HSV_PINK
+            rgblight_sethsv(HSV_PINK);
         break;
         case L_GAME:
-            rgblight_sethsv(HSV_ORANGE);    // HSV_ORANGE
+            rgblight_sethsv(HSV_ORANGE);
         break;
         default: // for any other layers, or the default layer
-            rgblight_sethsv(HSV_WHITE);     // HSV_WHITE
+            rgblight_sethsv(HSV_WHITE);
         break;
     }
     return state;
@@ -175,28 +213,28 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case L_RU:
-            rgblight_sethsv(HSV_PURPLE);    // HSV_PURPLE
+            rgblight_sethsv(HSV_PURPLE);
         break;
         case L_MEDIA:
-            rgblight_sethsv(HSV_MAGENTA);   // HSV_MAGENTA
+            rgblight_sethsv(HSV_MAGENTA);
         break;
         case L_NAV:
-            rgblight_sethsv(HSV_CYAN);      // HSV_CYAN
+            rgblight_sethsv(HSV_CYAN);
         break;
         case L_MOUSE:
-            rgblight_sethsv(HSV_YELLOW);    // HSV_YELLOW
+            rgblight_sethsv(HSV_YELLOW);
         break;
         case L_SYM:
-            rgblight_sethsv(HSV_GREEN);     // HSV_GREEN
+            rgblight_sethsv(HSV_GREEN);
         break;
         case L_NUM:
-            rgblight_sethsv(HSV_BLUE);      // HSV_BLUE
+            rgblight_sethsv(HSV_BLUE);
         break;
         case L_FUN:
-            rgblight_sethsv(HSV_RED);       // HSV_RED
+            rgblight_sethsv(HSV_RED);
         break;
         default: // for any other layers, or the default layer
-            rgblight_sethsv(HSV_WHITE);     // HSV_WHITE
+            rgblight_sethsv(HSV_WHITE);
         break;
     }
     return state;
