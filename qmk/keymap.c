@@ -138,7 +138,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
          KC_LCTL,      KC_B,       KC_Z,      KC_X,       KC_C,       KC_V,                                KC_N,      KC_LEFT,    KC_DOWN,    KC_RGHT,     KC_M,      KC_SLSH,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
-                                   KC_LALT,             KC_SPC,         LT(L_NUM, KC_ESC)           KC_H,               KC_SPC,         LT(L_FUN, KC_ENT)
+                                   KC_LALT,             KC_SPC,        LT(L_NUM, KC_ESC),           KC_H,               KC_SPC,         LT(L_FUN, KC_ENT)
                         //`+--------------------+--------------------+--------------------||--------------------+--------------------+--------------------+'
     )
 };
@@ -160,13 +160,13 @@ void user_timer(void) {
 layer_state_t default_layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case L_ENG:
-            rgblight_sethsv(HSV_ROSE);
+            rgblight_sethsv(HSV_PINK);      // HSV_PINK
         break;
         case L_GAME:
-            rgblight_sethsv(HSV_ORANGE);
+            rgblight_sethsv(HSV_ORANGE);    // HSV_ORANGE
         break;
         default: // for any other layers, or the default layer
-            rgblight_sethsv(HSV_WHITE);
+            rgblight_sethsv(HSV_WHITE);     // HSV_WHITE
         break;
     }
     return state;
@@ -175,28 +175,28 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case L_RU:
-            rgblight_sethsv(HSV_VIOLET);
+            rgblight_sethsv(HSV_PURPLE);    // HSV_PURPLE
         break;
         case L_MEDIA:
-            rgblight_sethsv(HSV_MAGENTA);
+            rgblight_sethsv(HSV_MAGENTA);   // HSV_MAGENTA
         break;
         case L_NAV:
-            rgblight_sethsv(HSV_CYAN);
+            rgblight_sethsv(HSV_CYAN);      // HSV_CYAN
         break;
         case L_MOUSE:
-            rgblight_sethsv(HSV_YELLOW);
+            rgblight_sethsv(HSV_YELLOW);    // HSV_YELLOW
         break;
         case L_SYM:
-            rgblight_sethsv(HSV_GREEN);
+            rgblight_sethsv(HSV_GREEN);     // HSV_GREEN
         break;
         case L_NUM:
-            rgblight_sethsv(HSV_BLUE);
+            rgblight_sethsv(HSV_BLUE);      // HSV_BLUE
         break;
         case L_FUN:
-            rgblight_sethsv(HSV_RED);
+            rgblight_sethsv(HSV_RED);       // HSV_RED
         break;
         default: // for any other layers, or the default layer
-            rgblight_sethsv(HSV_WHITE);
+            rgblight_sethsv(HSV_WHITE);     // HSV_WHITE
         break;
     }
     return state;

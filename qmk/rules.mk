@@ -14,7 +14,7 @@ NKRO_ENABLE = yes
 RGBLIGHT_ENABLE = yes
 	# Enable keyboard underlight functionality
 
-TAP_DANCE_ENABLE = yes
+TAP_DANCE_ENABLE = no
 	# Чтоб на нажатие клавиши было что-то одно, а на зажатие - другое. Называется TapDance
 
 # TAPPING_TERM_PER_KEY = yes

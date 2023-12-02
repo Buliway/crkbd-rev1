@@ -9,7 +9,15 @@
 2) Сделать нормальный once shift, а не через смену слоя на +1 как в стандартном lang_shift
 3) Написать более подробный гайд по прошивке ниже
 
-# Как прошить
+# Как прошить на Linux
+
+## Vial
+
+Когда то будет
+
+https://get.vial.today/docs/porting-to-vial.html
+
+А пока старый вариант гайда
 
 Создать файл прошивки
 
@@ -19,9 +27,17 @@ make crkbd/rev1:vial
 
 qmk flash -kb crkbd/rev1 -km vial
 
-https://get.vial.today/docs/porting-to-vial.html
+## QMK
 
-https://docs.qmk.fm/#/newbs_flashing
+https://docs.qmk.fm/#/newbs_getting_started
+
+В терминале пишем это
+1) sudo pacman --needed --noconfirm -S git python-pip libffi 
+2) paru -S qmk-git
+3) qmk setup 
+4) Переносим в каталог ~/qmk_firmware/keyboards/crkbd/keymaps/default свои настройки. Либо можно создать свой каталог в keymaps вместо default и туда засунуть свои настройки.
+5) qmk compile -kb crkbd/rev1 -km default
+
 
 # Моя раскладка
 ![Keyboard](/img/layers.png)
