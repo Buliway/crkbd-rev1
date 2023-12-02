@@ -120,9 +120,9 @@ void shift_activate(Shift shift) {
 	if (shift_current != shift) {
 		shift_timer = timer_read();
 		if (shift) {
-			register_code(KC_LSHIFT);
+			register_code(KC_LSFT);
 		} else {
-			unregister_code(KC_LSHIFT);
+			unregister_code(KC_LSFT);
 		}
 	}
 	shift_current = shift;
@@ -328,10 +328,10 @@ void lang_synchronize(void) {
     case LANG_CHANGE_CAPS: {
       // Костыль, потому что при нажатии Shift+Caps включается режим Caps, а не переключение языка :facepalm:
       if (shift_current == 1) {
-      	unregister_code(KC_LSHIFT);
+      	unregister_code(KC_LSFT);
       	register_code(KC_CAPS);
       	unregister_code(KC_CAPS);
-      	register_code(KC_LSHIFT);
+      	register_code(KC_LSFT);
       } else {
       	register_code(KC_CAPS);
       	unregister_code(KC_CAPS);
@@ -339,46 +339,46 @@ void lang_synchronize(void) {
     } break;
     case LANG_CHANGE_ALT_SHIFT: {
       register_code(KC_LALT);
-      register_code(KC_LSHIFT);
-      unregister_code(KC_LSHIFT);
+      register_code(KC_LSFT);
+      unregister_code(KC_LSFT);
       unregister_code(KC_LALT);
 
       // Костыль, потому что при зажатом шифте если хочется нажать клавишу, которая переключает язык, то шифт слетает...
       if (shift_current == 1) {
-        register_code(KC_LSHIFT);
+        register_code(KC_LSFT);
       }
     } break;
     case LANG_CHANGE_SHIFT_ALT: {
-      register_code(KC_LSHIFT);
+      register_code(KC_LSFT);
       register_code(KC_LALT);
       unregister_code(KC_LALT);
-      unregister_code(KC_LSHIFT);
+      unregister_code(KC_LSFT);
 
       // Костыль, потому что при зажатом шифте если хочется нажать клавишу, которая переключает язык, то шифт слетает...
       if (shift_current == 1) {
-        register_code(KC_LSHIFT);
+        register_code(KC_LSFT);
       }
     } break;
     case LANG_CHANGE_CTRL_SHIFT: {
-      register_code(KC_LCTRL);
-      register_code(KC_LSHIFT);
-      unregister_code(KC_LSHIFT);
+      register_code(KC_LCTL);
+      register_code(KC_LSFT);
+      unregister_code(KC_LSFT);
       unregister_code(KC_LCTL);
 
       // Костыль, потому что при зажатом шифте если хочется нажать клавишу, которая переключает язык, то шифт слетает...
       if (shift_current == 1) {
-        register_code(KC_LSHIFT);
+        register_code(KC_LSFT);
       }
     } break;
     case LANG_CHANGE_SHIFT_CTRL: {
-      register_code(KC_LSHIFT);
-      register_code(KC_LCTRL);
+      register_code(KC_LSFT);
+      register_code(KC_LCTL);
       unregister_code(KC_LCTL);
-      unregister_code(KC_LSHIFT);
+      unregister_code(KC_LSFT);
 
       // Костыль, потому что при зажатом шифте если хочется нажать клавишу, которая переключает язык, то шифт слетает...
       if (shift_current == 1) {
-        register_code(KC_LSHIFT);
+        register_code(KC_LSFT);
       }
     } break;
     case LANG_CHANGE_WIN_SPACE: {
@@ -602,21 +602,21 @@ bool lang_shift_process_english_modifiers(Key key, keyrecord_t* record) {
   #define Un(x) unregister_code(KC_L ## x)
 
   switch (key) {
-    PROCESS(CTRL_0, Rg(CTRL), Un(CTRL), false);
+    PROCESS(CTRL_0, Rg(CTL), Un(CTL), false);
     PROCESS(ALT_0,  Rg(ALT),  Un(ALT), false);
     PROCESS(WIN_0,  Rg(GUI),  Un(GUI), false);
-    PROCESS(CTAL_0, { Rg(CTRL);  Rg(ALT);   }, { Un(ALT);   Un(CTRL);  }, false);
-    PROCESS(SHAL_0, { Rg(SHIFT); Rg(ALT);   }, { Un(ALT);   Un(SHIFT); }, false);
-    PROCESS(CTSH_0, { Rg(CTRL);  Rg(SHIFT); }, { Un(SHIFT); Un(CTRL);  }, false);
-    PROCESS(MCAS_0, { Rg(CTRL);  Rg(ALT); Rg(SHIFT); }, { Un(SHIFT); Un(ALT); Un(CTRL); }, false);
+    PROCESS(CTAL_0, { Rg(CTL);  Rg(ALT);   }, { Un(ALT);   Un(CTL);  }, false);
+    PROCESS(SHAL_0, { Rg(SFT); Rg(ALT);   }, { Un(ALT);   Un(SFT); }, false);
+    PROCESS(CTSH_0, { Rg(CTL);  Rg(SFT); }, { Un(SFT); Un(CTL);  }, false);
+    PROCESS(MCAS_0, { Rg(CTL);  Rg(ALT); Rg(SFT); }, { Un(SFT); Un(ALT); Un(CTL); }, false);
 
-    PROCESS(CTRL_EN, Rg(CTRL), Un(CTRL), true);
+    PROCESS(CTRL_EN, Rg(CTL), Un(CTL), true);
     PROCESS(ALT_EN,  Rg(ALT),  Un(ALT), true);
     PROCESS(WIN_EN,  Rg(GUI),  Un(GUI), true);
-    PROCESS(CTAL_EN, { Rg(CTRL);  Rg(ALT);   }, { Un(ALT);   Un(CTRL);  }, true);
-    PROCESS(SHAL_EN, { Rg(SHIFT); Rg(ALT);   }, { Un(ALT);   Un(SHIFT); }, true);
-    PROCESS(CTSH_EN, { Rg(CTRL);  Rg(SHIFT); }, { Un(SHIFT); Un(CTRL);  }, true);
-    PROCESS(MCAS_EN, { Rg(CTRL);  Rg(ALT); Rg(SHIFT); }, { Un(SHIFT); Un(ALT); Un(CTRL); }, true);
+    PROCESS(CTAL_EN, { Rg(CTL);  Rg(ALT);   }, { Un(ALT);   Un(CTL);  }, true);
+    PROCESS(SHAL_EN, { Rg(SFT); Rg(ALT);   }, { Un(ALT);   Un(SFT); }, true);
+    PROCESS(CTSH_EN, { Rg(CTL);  Rg(SFT); }, { Un(SFT); Un(CTL);  }, true);
+    PROCESS(MCAS_EN, { Rg(CTL);  Rg(ALT); Rg(SFT); }, { Un(SFT); Un(ALT); Un(CTL); }, true);
   }
 
   return true;
