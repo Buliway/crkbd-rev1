@@ -195,48 +195,50 @@ void user_timer(void) {
 };
 
 // Tap Dance
+void keyboard_post_init_user(void) {
 // Mod keys on RU layer
-vial_tap_dance_entry_t td0 = { KC_C,   // С on tap, Win on hold
-                               WIN_EN,
-                               KC_NO,
-                               KC_NO,
-                               TAPPING_TERM };
-dynamic_keymap_set_tap_dance(0, &td0);
+    vial_tap_dance_entry_t td0 = {KC_C,   // С on tap, Win on hold
+                                  WIN_EN,
+                                  KC_NO,
+                                  KC_NO,
+                                  TAPPING_TERM};
+    dynamic_keymap_set_tap_dance(0, &td0);
 
-vial_tap_dance_entry_t td1 = { KC_P,   // З on tap, Win on hold
-                               WIN_EN,
-                               KC_NO,
-                               KC_NO,
-                               TAPPING_TERM };
-dynamic_keymap_set_tap_dance(1, &td1);
+    vial_tap_dance_entry_t td1 = {KC_P,   // З on tap, Win on hold
+                                  WIN_EN,
+                                  KC_NO,
+                                  KC_NO,
+                                  TAPPING_TERM};
+    dynamic_keymap_set_tap_dance(1, &td1);
 
-vial_tap_dance_entry_t td2 = { KC_T,   // Е on tap, Alt on hold
-                               ALT_EN,
-                               KC_NO,
-                               KC_NO,
-                               TAPPING_TERM };
-dynamic_keymap_set_tap_dance(2, &td2);
+    vial_tap_dance_entry_t td2 = {KC_T,   // Е on tap, Alt on hold
+                                  ALT_EN,
+                                  KC_NO,
+                                  KC_NO,
+                                  TAPPING_TERM};
+    dynamic_keymap_set_tap_dance(2, &td2);
 
-vial_tap_dance_entry_t td3 = { KC_D,   // В on tap, Alt on hold
-                               ALT_EN,
-                               KC_NO,
-                               KC_NO,
-                               TAPPING_TERM };
-dynamic_keymap_set_tap_dance(3, &td3);
+    vial_tap_dance_entry_t td3 = {KC_D,   // В on tap, Alt on hold
+                                  ALT_EN,
+                                  KC_NO,
+                                  KC_NO,
+                                  TAPPING_TERM};
+    dynamic_keymap_set_tap_dance(3, &td3);
 
-vial_tap_dance_entry_t td4 = { KC_J,   // О on tap, Ctrl on hold
-                               CTRL_EN,
-                               KC_NO,
-                               KC_NO,
-                               TAPPING_TERM };
-dynamic_keymap_set_tap_dance(4, &td4);
+    vial_tap_dance_entry_t td4 = {KC_J,   // О on tap, Ctrl on hold
+                                  CTRL_EN,
+                                  KC_NO,
+                                  KC_NO,
+                                  TAPPING_TERM};
+    dynamic_keymap_set_tap_dance(4, &td4);
 
-vial_tap_dance_entry_t td5 = { KC_Y,   // Н on tap, Ctrl on hold
-                               CTRL_EN,
-                               KC_NO,
-                               KC_NO,
-                               TAPPING_TERM };
-dynamic_keymap_set_tap_dance(5, &td5);
+    vial_tap_dance_entry_t td5 = {KC_Y,   // Н on tap, Ctrl on hold
+                                  CTRL_EN,
+                                  KC_NO,
+                                  KC_NO,
+                                  TAPPING_TERM};
+    dynamic_keymap_set_tap_dance(5, &td5);
+}
 
 
 // Lighting Layers
