@@ -50,9 +50,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
          KC_ESC,       KC_A,     KC_QUOT,      KC_Z,      KC_S,      KC_RBRC,                               KC_Q,     KC_COMM,     KC_K,       KC_R,       KC_W,     KC_SCLN,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-           KC_O,   WIN_T(KC_C),ALT_T(KC_T),CTL_T(KC_J),SFT_T(KC_F),   KC_M,                                 KC_L,   SFT_T(KC_N),CTL_T(KC_Y),ALT_T(KC_D),WIN_T(KC_P),    KC_X,
+           KC_O,      TD(0),      TD(2),      TD(4),   SFT_T(KC_F),   KC_M,                                 KC_L,   SFT_T(KC_N),   TD(5),      TD(3),      TD(1),      KC_X,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-         LA_CHNG,      KC_I,     KC_DOT,       KC_E,      KC_B,      KC_GRV,                                KC_U,       KC_V,      KC_H,       KC_G,     KC_LBRC,     XXXXXXX,
+         LA_CHNG,      KC_I,     KC_DOT,       KC_E,      KC_B,      KC_GRV,                                KC_U,       KC_V,      KC_H,       KC_G,      KC_LBRC,    XXXXXXX,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
                             LT(L_MEDIA, KC_ENT), LT(L_MOUSE, KC_BSPC),     MO(L_NAV),            MO(L_SYM),       LT(L_FUN, KC_SPC),       MO(L_NUM)
                         //`+--------------------+--------------------+--------------------||--------------------+--------------------+--------------------+'
@@ -193,6 +193,50 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {   // В кон
 void user_timer(void) {
     lang_shift_user_timer();
 };
+
+// Tap Dance
+// Mod keys on RU layer
+vial_tap_dance_entry_t td0 = { KC_C,   // С on tap, Win on hold
+                               WIN_EN,
+                               KC_NO,
+                               KC_NO,
+                               TAPPING_TERM };
+dynamic_keymap_set_tap_dance(0, &td0);
+
+vial_tap_dance_entry_t td1 = { KC_P,   // З on tap, Win on hold
+                               WIN_EN,
+                               KC_NO,
+                               KC_NO,
+                               TAPPING_TERM };
+dynamic_keymap_set_tap_dance(1, &td1);
+
+vial_tap_dance_entry_t td2 = { KC_T,   // Е on tap, Alt on hold
+                               ALT_EN,
+                               KC_NO,
+                               KC_NO,
+                               TAPPING_TERM };
+dynamic_keymap_set_tap_dance(2, &td2);
+
+vial_tap_dance_entry_t td3 = { KC_D,   // В on tap, Alt on hold
+                               ALT_EN,
+                               KC_NO,
+                               KC_NO,
+                               TAPPING_TERM };
+dynamic_keymap_set_tap_dance(3, &td3);
+
+vial_tap_dance_entry_t td4 = { KC_J,   // О on tap, Ctrl on hold
+                               CTRL_EN,
+                               KC_NO,
+                               KC_NO,
+                               TAPPING_TERM };
+dynamic_keymap_set_tap_dance(4, &td4);
+
+vial_tap_dance_entry_t td5 = { KC_Y,   // Н on tap, Ctrl on hold
+                               CTRL_EN,
+                               KC_NO,
+                               KC_NO,
+                               TAPPING_TERM };
+dynamic_keymap_set_tap_dance(5, &td5);
 
 
 // Lighting Layers
