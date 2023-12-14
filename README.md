@@ -40,6 +40,7 @@ https://docs.qmk.fm/#/newbs_getting_started
 4) Переносим в каталог ~/qmk_firmware/keyboards/crkbd/keymaps/default свои настройки. Либо можно создать свой каталог в keymaps вместо default и туда засунуть свои настройки.
 5) qmk compile -kb crkbd/rev1 -km default
 6) qmk flash -kb crkbd/rev1 -km default
+
 В теории всё
 
 # Моя раскладка
