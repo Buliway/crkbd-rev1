@@ -35,9 +35,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [L_ENG] = LAYOUT(
     //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
-         KC_ESC,      KC_F,      XXXXXXX,     KC_X,       KC_Y,     DF(L_GAME),                             KC_G,       KC_D,       KC_L,       KC_K,       KC_Z,     CW_TOGG,
+         KC_ESC,      KC_F,      XXXXXXX,     KC_X,       KC_Y,     DF(L_GAME),                             KC_G,       KC_D,       KC_L,       KC_K,     XXXXXXX,    XXXXXXX,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-         KC_LWIN, LWIN_T(KC_C),ALT_T(KC_E),CTL_T(KC_O),SFT_T(KC_A),  XXXXXXX,                               KC_B,  SFT_T(KC_T),CTL_T(KC_N),ALT_T(KC_V),LWIN_T(KC_S),ONCE_SHIFT,
+         KC_LWIN, LWIN_T(KC_C),ALT_T(KC_E),CTL_T(KC_O),SFT_T(KC_A),  XXXXXXX,                               KC_B,  SFT_T(KC_T),CTL_T(KC_N),ALT_T(KC_V),LWIN_T(KC_S),   KC_Z,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
          XXXXXXX,     KC_W,       KC_Q,       KC_U,       KC_I,      XXXXXXX,                               KC_J,       KC_M,       KC_R,       KC_P,       KC_H,     LA_CHNG,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
@@ -47,9 +47,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [L_RU] = LAYOUT(
     //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
-         KC_ESC,       KC_A,     KC_QUOT,     KC_Z,       KC_S,      KC_RBRC,                               KC_U,       KC_L,      KC_K,       KC_R,       KC_P,       KC_W,
+         KC_ESC,       KC_A,     KC_QUOT,     KC_Z,       KC_S,      KC_RBRC,                               KC_U,       KC_L,      KC_K,       KC_R,        KC_W,     KC_SCLN,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-           KC_O,  LWIN_T(KC_C),ALT_T(KC_T),CTL_T(KC_J),SFT_T(KC_F),  KC_M,                                KC_COMM,  SFT_T(KC_N),CTL_T(KC_Y),ALT_T(KC_D),LWIN_T(KC_X), KC_SCLN,
+           KC_O,  LWIN_T(KC_C),ALT_T(KC_T),CTL_T(KC_J),SFT_T(KC_F),  KC_M,                                KC_COMM,  SFT_T(KC_N),CTL_T(KC_Y),ALT_T(KC_D),LWIN_T(KC_X),  KC_P,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
          LA_CHNG,      KC_I,     KC_DOT,      KC_E,       KC_B,      KC_GRV,                                KC_Q,       KC_V,      KC_H,       KC_G,     KC_LBRC,     XXXXXXX,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
@@ -254,4 +254,31 @@ void matrix_scan_user(void) {
         // Если ни один из этих слоев не активен, обновляем подсветку на основе текущего базового слоя
         default_layer_state_set_user(default_layer_state);
         }
+}
+
+bool caps_word_press_user(uint16_t keycode) {
+    switch (keycode) {
+        // Keycodes that continue Caps Word, with shift applied.
+        case KC_A ... KC_Z:
+        case KC_MINS:
+        case KC_QUOT:
+        case KC_RBRC:
+        case KC_SCLN:
+        case KC_COMM:
+        case KC_GRV:
+        case KC_LBRC:
+        case KC_DOT:
+            add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
+            return true;
+
+        // Keycodes that continue Caps Word, without shifting.
+        case KC_1 ... KC_0:
+        case KC_BSPC:
+        case KC_DEL:
+        case KC_UNDS:
+            return true;
+
+        default:
+            return false;  // Deactivate Caps Word.
+    }
 }
