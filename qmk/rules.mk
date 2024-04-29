@@ -9,7 +9,7 @@ EXTRAKEY_ENABLE = yes
 
 NKRO_ENABLE = yes
 	# This allows the keyboard to tell the host OS that up to 248 keys are held down at once (default without NKRO is 6). NKRO is off by default, even if NKRO_ENABLE is set. NKRO can be forced by adding #define FORCE_NKRO to your config.h or by binding MAGIC_TOGGLE_NKRO to a key and then hitting the key.
-	# If this doesn’t work, see here: https://github.com/tmk/tmk_keyboard/wiki/FAQ#nkro-doesnt-work
+	# If this doesn't work, see here: https://github.com/tmk/tmk_keyboard/wiki/FAQ#nkro-doesnt-work
 
 RGBLIGHT_ENABLE = yes
 	# Enable keyboard underlight functionality
@@ -35,11 +35,14 @@ OLED_ENABLE = no
 COMBO_ENABLE = no
 	# Key combo feature. https://docs.qmk.fm/#/feature_combo
 
+CAPS_WORD_ENABLE = yes
+	# Toggles Caps Word https://docs.qmk.fm/#/feature_caps_word 
+
 # LEADER_ENABLE = yes
-	# If you’re a Vim user, you probably know what a Leader key is. In contrast to Combos, the Leader key allows you to hit a sequence of up to five keys instead, which triggers some custom functionality once complete. https://docs.qmk.fm/#/feature_leader_key
+	# If you're a Vim user, you probably know what a Leader key is. In contrast to Combos, the Leader key allows you to hit a sequence of up to five keys instead, which triggers some custom functionality once complete. https://docs.qmk.fm/#/feature_leader_key
 
 # UNICODE_ENABLE = yes
-	# This allows you to send Unicode characters using UC(<code point>) in your keymap. Code points up to 0x7FFF are supported. This covers characters for most modern languages, as well as symbols, but it doesn’t cover emoji.
+	# This allows you to send Unicode characters using UC(<code point>) in your keymap. Code points up to 0x7FFF are supported. This covers characters for most modern languages, as well as symbols, but it doesn't cover emoji.
 
 # UNICODEMAP_ENABLE = yes
 	# This allows you to send Unicode characters using UM(<map index>) in your keymap. You will need to maintain a mapping table in your keymap file. All possible code points (up to 0x10FFFF) are supported.
@@ -90,7 +93,7 @@ COMBO_ENABLE = no
 	# Disables usb suspend check after keyboard startup. Usually the keyboard waits for the host to wake it up before any tasks are performed. This is useful for split keyboards as one half will not get a wakeup call but must send commands to the master.
 
 # SPLIT_KEYBOARD = ?
-	# This enables split keyboard support (dual MCU like the let’s split and bakingpy’s boards) and includes all necessary files located at quantum/split_common
+	# This enables split keyboard support (dual MCU like the let's split and bakingpy's boards) and includes all necessary files located at quantum/split_common
 
 # SPLIT_TRANSPORT = ?
 	# As there is no standard split communication driver for ARM-based split keyboards yet, SPLIT_TRANSPORT = custom must be used for these. It will prevent the standard split keyboard communication code (which is AVR-specific) from being included, allowing a custom implementation to be used.
