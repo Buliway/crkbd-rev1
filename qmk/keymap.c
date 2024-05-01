@@ -35,11 +35,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [L_ENG] = LAYOUT(
     //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
-         KC_ESC,      KC_F,      XXXXXXX,     KC_X,       KC_Y,     DF(L_GAME),                             KC_G,       KC_D,       KC_L,       KC_K,     XXXXXXX,    XXXXXXX,
+         KC_ESC,     XXXXXXX,    XXXXXXX,     KC_X,       KC_Q,     DF(L_GAME),                             KC_J,       KC_D,       KC_L,       KC_K,       KC_C,     XXXXXXX,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-         KC_LWIN, LWIN_T(KC_C),ALT_T(KC_E),CTL_T(KC_O),SFT_T(KC_A),  XXXXXXX,                               KC_B,  SFT_T(KC_T),CTL_T(KC_N),ALT_T(KC_V),LWIN_T(KC_S),   KC_Z,
+          KC_F,   LWIN_T(KC_S),ALT_T(KC_E),CTL_T(KC_O),SFT_T(KC_A),  XXXXXXX,                               KC_G,  SFT_T(KC_T),CTL_T(KC_N),ALT_T(KC_V),LWIN_T(KC_Z),  XXXXXXX,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-         XXXXXXX,     KC_W,       KC_Q,       KC_U,       KC_I,      XXXXXXX,                               KC_J,       KC_M,       KC_R,       KC_P,       KC_H,     LA_CHNG,
+         XXXXXXX,     KC_W,       KC_U,       KC_Y,       KC_I,      XXXXXXX,                               KC_B,       KC_M,       KC_R,       KC_P,       KC_H,     LA_CHNG,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
                             LT(L_MEDIA, KC_ENT), LT(L_MOUSE, KC_BSPC),     MO(L_NAV),            MO(L_SYM),       LT(L_FUN, KC_SPC),       MO(L_NUM)
                         //`+--------------------+--------------------+--------------------||--------------------+--------------------+--------------------+'
@@ -47,11 +47,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [L_RU] = LAYOUT(
     //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
-         KC_ESC,       KC_A,     KC_QUOT,     KC_Z,       KC_S,      KC_RBRC,                               KC_U,       KC_L,      KC_K,       KC_R,        KC_W,     KC_SCLN,
+         KC_ESC,       KC_O,     KC_QUOT,     KC_Z,       KC_S,      KC_RBRC,                               KC_Q,       KC_L,      KC_K,       KC_R,        KC_W,     KC_SCLN,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-           KC_O,  LWIN_T(KC_C),ALT_T(KC_T),CTL_T(KC_J),SFT_T(KC_F),  KC_M,                                KC_COMM,  SFT_T(KC_N),CTL_T(KC_Y),ALT_T(KC_D),LWIN_T(KC_X),  KC_P,
+           KC_A,  LWIN_T(KC_C),ALT_T(KC_T),CTL_T(KC_J),SFT_T(KC_F),  KC_M,                                  KC_U,  SFT_T(KC_N),CTL_T(KC_Y),ALT_T(KC_D),LWIN_T(KC_P),   KC_X,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-         LA_CHNG,      KC_I,     KC_DOT,      KC_E,       KC_B,      KC_GRV,                                KC_Q,       KC_V,      KC_H,       KC_G,     KC_LBRC,     XXXXXXX,
+         LA_CHNG,      KC_I,     KC_DOT,      KC_E,       KC_B,      KC_GRV,                              KC_COMM,      KC_V,      KC_H,       KC_G,     KC_LBRC,     XXXXXXX,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
                             LT(L_MEDIA, KC_ENT), LT(L_MOUSE, KC_BSPC),     MO(L_NAV),            MO(L_SYM),       LT(L_FUN, KC_SPC),       MO(L_NUM)
                         //`+--------------------+--------------------+--------------------||--------------------+--------------------+--------------------+'
@@ -71,9 +71,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [L_NAV] = LAYOUT(
     //,-----------------------------------------------------------------------.                        ,-----------------------------------------------------------------------.
-         XXXXXXX,    XXXXXXX,    XXXXXXX,    C(KC_W),    XXXXXXX,    XXXXXXX,                             C(KC_Y),    C(KC_V),    C(KC_C),    C(KC_X),    C(KC_Z),    C(KC_S),
+         XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                             C(KC_Y),    C(KC_V),    C(KC_C),    C(KC_X),    C(KC_Z),    C(KC_S),
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
-         XXXXXXX,    KC_LWIN,    KC_LALT,    KC_LCTL,    KC_LSFT,    XXXXXXX,                             KC_CAPS,    KC_LEFT,    KC_DOWN,     KC_UP,     KC_RGHT,    KC_TAB,
+        G(KC_ESC),   KC_LWIN,    KC_LALT,    KC_LCTL,    KC_LSFT,    XXXXXXX,                             KC_CAPS,    KC_LEFT,    KC_DOWN,     KC_UP,     KC_RGHT,    KC_TAB,
     //|-----------+-----------+-----------+-----------+-----------+-----------|                        |-----------+-----------+-----------+-----------+-----------+-----------|
          XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,    XXXXXXX,                              KC_INS,    KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,     KC_DEL,
     //|-----------+-----------+-----------+-----------+-----------+-----------+-----------||-----------+-----------+-----------+-----------+-----------+-----------+-----------|
