@@ -41,4 +41,11 @@ https://docs.qmk.fm/#/newbs_getting_started
 В теории всё
 
 # Моя раскладка
-![Keyboard](/img/layers.png)
+
+## Фонетичская ракладка
+
+![Layout](/img/layout.png)
+
+## Все слои
+
+![Layers](/img/layers.png)
