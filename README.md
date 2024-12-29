@@ -1,50 +1,48 @@
 # crkbd-rev1
 
-Настройки моей клавиатуры. Понятия не имею, что я делаю. Метод тыка в деле.
+My keyboard settings. Mostly inspired by [Miryoku](https://github.com/manna-harbour/miryoku) and [this](https://habr.com/ru/articles/717912/) Russian keyboard layout.
 
 # TODO: 
-1) Добавить кастом кейкоды в VIAL https://get.vial.today/manual/custom_keycode.html
-2) Обновить VIAL до состояния QMK (сейчас прошивки сильно различаются, я использую QMK)
-3) Написать более подробный гайд по прошивке ниже
+1) Add custom keycodes to VIAL https://get.vial.today/manual/custom_keycode.html
+2) Upgrade VIAL to QMK state (currently firmware is very different, I use QMK)
+3) Write a more detailed flashing guide below
+4) **Swap Z and H to make it easier to typing the bigram CH**
 
-# Как прошить на Arch Linux
+# Flashing on Arch Linux
 
 ## Vial
 
-Когда то будет
+Coming soon...
 
 https://get.vial.today/docs/porting-to-vial.html
 
-А пока старый вариант гайда
+The old version of the guide
 
-Создать файл прошивки
-
-make crkbd/rev1:vial
-
-Прошить одну половину, потом вторую.
-
-qmk flash -kb crkbd/rev1 -km vial
+1) Create firmware file
+2) `make crkbd/rev1:vial`
+3) Flash one half of the keyboard, then the other half
+4) `qmk flash -kb crkbd/rev1 -km vial`
 
 ## QMK
 
 https://docs.qmk.fm/#/newbs_getting_started
 
-В терминале пишем это
-1) sudo pacman --needed --noconfirm -S git python-pip libffi 
-2) paru -S qmk-git
-3) qmk setup 
-4) Переносим в каталог ~/qmk_firmware/keyboards/crkbd/keymaps/default свои настройки. Либо можно создать свой каталог в keymaps вместо default и туда засунуть свои настройки.
-5) qmk compile -kb crkbd/rev1 -km default
-6) qmk flash -kb crkbd/rev1 -km default
+Type this in the terminal
+1) `sudo pacman --needed --noconfirm -S git python-pip libffi`
+2) `paru -S qmk-git`
+3) `qmk setup `
+4) Move your settings to the `~/qmk_firmware/keyboards/crkbd/keymaps/default` directory. Or you can create your own directory in `keymaps` instead of `default` and put your settings there.
+6) `qmk compile -kb crkbd/rev1 -km default`
+7) `qmk flash -kb crkbd/rev1 -km default`
 
-В теории всё
+That's all
 
-# Моя раскладка
+# Layout
 
-## Фонетичская ракладка
+## Phonetic layout
 
 ![Layout](/img/layout.png)
 
-## Все слои
+## Layers
 
 ![Layers](/img/layers.png)
